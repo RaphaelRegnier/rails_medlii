@@ -1,5 +1,5 @@
-<%= simple_form_for [@user, @played_instrument]  do |f| %>
-   <%= f.input :instrument_id %>
-    <%= f.input :level %>
-   <%= f.button :submit, class: 'btn-raise' %>
-   <% end %>
+<%= simple_form_for [@played_instrument]  do |f| %>
+  <%= f.input :instrument, collection: Instrument.all%>
+  <%= f.input :level, collection: (1..10)%>
+  <%= f.button :submit, class: 'btn-raise' %>
+<% end %>
