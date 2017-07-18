@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :played_instruments, dependent: :destroy
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
+
+  has_attachment :photo
 end
