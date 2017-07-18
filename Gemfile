@@ -17,6 +17,24 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+
+
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+gem 'bootstrap-material-design'
+gem 'omniauth-facebook'
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
