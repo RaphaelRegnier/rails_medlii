@@ -17,6 +17,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'figaro'
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
 
 group :development, :test do
   gem 'better_errors'
