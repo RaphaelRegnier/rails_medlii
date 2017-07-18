@@ -1,10 +1,10 @@
 .sidebar {
   background: white;
   height: 100%;
-  width: 200px;
-  left: -200px;
+  width: 300px;
+  left: -300px;
   top: 0px;
-  position: absolute;
+  position: fixed;
   display: block;
   margin: 0px;
   padding: 0px;
@@ -13,7 +13,6 @@
 
 .sidebar-visible {
   left: 0px;
-  transition: left, 0.3s linear;
 }
 
 ul {
@@ -35,7 +34,7 @@ ul {
   margin: 20px;
   position: absolute;
   top: 0px;
-  left: 200px;
+  left: 300px;
   span {
     height: 1px;
     background: #111;
@@ -48,4 +47,14 @@ ul {
   span:nth-child(3){
     width: 50%;
   }
+}
+.container {
+  margin-top: 30px;
+  margin-left: 0px;
+  transition: margin-left, 0.3s linear;
+}
+
+.move-container {
+  margin-left: 300px;
+  opacity: 0.5;
 }

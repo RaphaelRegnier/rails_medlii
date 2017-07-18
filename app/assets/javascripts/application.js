@@ -18,6 +18,7 @@ $(document).ready(function() {
   $('.attachinary-input').attachinary();
   $('.sidebar-btn').click(function(){
     $('.sidebar').toggleClass('sidebar-visible');
+    $('.container').toggleClass('move-container');
   });
 });
 
