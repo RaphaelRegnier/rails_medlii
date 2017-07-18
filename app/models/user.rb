@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :played_instruments, dependent: :destroy
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 
   has_attachment :photo
 
