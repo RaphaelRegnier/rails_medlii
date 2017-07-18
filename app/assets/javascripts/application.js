@@ -7,7 +7,7 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-material-design
-=======
+
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
@@ -16,6 +16,9 @@
 
 $(document).ready(function() {
   $('.attachinary-input').attachinary();
+  $('.sidebar-btn').click(function(){
+    $('.sidebar').toggleClass('sidebar-visible');
+  });
 });
 
 

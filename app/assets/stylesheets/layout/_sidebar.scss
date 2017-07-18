@@ -1,0 +1,51 @@
+.sidebar {
+  background: white;
+  height: 100%;
+  width: 200px;
+  left: -200px;
+  top: 0px;
+  position: absolute;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  transition: left, 0.3s linear;
+}
+
+.sidebar-visible {
+  left: 0px;
+  transition: left, 0.3s linear;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  li {
+  list-style: none;
+  border-bottom: 1px solid;
+  }
+
+}
+
+.sidebar-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  margin: 20px;
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  span {
+    height: 1px;
+    background: #111;
+    margin-bottom: 5px;
+    display: block;
+  }
+  span:nth-child(2){
+    width: 75%;
+  }
+  span:nth-child(3){
+    width: 50%;
+  }
+}
