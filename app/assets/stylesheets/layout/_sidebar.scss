@@ -1,0 +1,60 @@
+.sidebar {
+  background: white;
+  height: 100%;
+  width: 300px;
+  left: -300px;
+  top: 0px;
+  position: fixed;
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  transition: left, 0.3s linear;
+}
+
+.sidebar-visible {
+  left: 0px;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  li {
+  list-style: none;
+  border-bottom: 1px solid;
+  }
+
+}
+
+.sidebar-btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  margin: 20px;
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  span {
+    height: 1px;
+    background: #111;
+    margin-bottom: 5px;
+    display: block;
+  }
+  span:nth-child(2){
+    width: 75%;
+  }
+  span:nth-child(3){
+    width: 50%;
+  }
+}
+.container {
+  margin-top: 30px;
+  margin-left: 0px;
+  transition: margin-left, 0.3s linear;
+}
+
+.move-container {
+  margin-left: 300px;
+  opacity: 0.5;
+}
