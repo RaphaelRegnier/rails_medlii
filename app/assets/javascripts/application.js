@@ -9,5 +9,5 @@
 
 $(document).ready(function() {
   $('.attachinary-input').attachinary();
+  $.material.init();
 });
-

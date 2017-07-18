@@ -14,7 +14,7 @@ get "users/:id/add_instruments", to: "users#add_instruments", as: :add_instrumen
     resources :played_instruments, only: [:create, :destroy]
   end
 
-  get "users/:id/add_instruments", to: "users#add_instruments", as: :add_instruments
+  # get "users/:id/add_instruments", to: "users#add_instruments", as: :add_instruments
 
 mount Attachinary::Engine => "/attachinary"
 
