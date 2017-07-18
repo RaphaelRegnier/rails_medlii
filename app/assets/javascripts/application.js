@@ -20,6 +20,6 @@ $(document).ready(function() {
     $('.sidebar').toggleClass('sidebar-visible');
     $('.container').toggleClass('move-container');
   });
+  $.material.init();
 });
-
 
