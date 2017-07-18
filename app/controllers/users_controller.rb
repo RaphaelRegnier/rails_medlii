@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def add_instruments
     @instruments = Instrument.all
-    @user = User.find(params[:id])
     @played_instrument = PlayedInstrument.new()
   end
 
