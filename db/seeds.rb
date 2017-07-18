@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
+
+Instrument.destroy_all
+PlayedInstrument.destroy_all
+User.destroy_all
+
+url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
+html_file = open(url)
+html_doc = Nokogiri::HTML(html_file)
+
+instruments = []
+
+
+html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
+
+instruments << element.text.match(/\A[a-zA-Z\s\/\'\"\’]*/)[0]
+end
+
+p instruments
+
+
+
