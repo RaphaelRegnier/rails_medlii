@@ -16,7 +16,13 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+
 gem 'bootstrap-material-design'
+gem 'omniauth-facebook'
+gem "figaro"
+gem "geocoder"
+
+
 
 group :development, :test do
   gem 'better_errors'
