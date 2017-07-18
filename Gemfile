@@ -18,10 +18,13 @@ gem 'simple_form'
 gem 'uglifier'
 
 
+
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+
+gem 'bootstrap-material-design'
 gem 'omniauth-facebook'
 gem "geocoder"
 
