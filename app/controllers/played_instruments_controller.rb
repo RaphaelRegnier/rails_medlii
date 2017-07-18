@@ -1,6 +1,11 @@
 class PlayedInstrumentsController < ApplicationController
   def create
     @played_instrument = PlayedInstrument.new(played_instrument_params)
+    if @played_instrument.save!
+      redirect_to users_path
+    else
+      redirect_to :back
+    end
 
   end
 
