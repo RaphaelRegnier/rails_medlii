@@ -11,6 +11,7 @@ resources :users do
 end
 
 get "users/:id/add_instruments", to: "users#add_instruments", as: :add_instruments
+mount Attachinary::Engine => "/attachinary"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

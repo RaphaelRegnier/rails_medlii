@@ -19,6 +19,8 @@ gem 'uglifier'
 gem 'figaro'
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'better_errors'
