@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:add_instruments, :edit, :destroy]
+  before_action :set_user, only: [:show, :add_instruments, :edit, :destroy]
 
   def show
-    @user = current_user
   end
 
   def index
-    @user = current_user
     @users = User.all
   end
 
