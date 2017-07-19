@@ -1,3 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12">
+      <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
+        <%= image_tag avatar_url, class: 'avatar-square'%>
+      <h2><%= @user.first_name.upcase%> <%=@user.last_name.first %>.<h2>
+      <h5> <%= @user.location %> </h5>
+       <%= @user.age %>
+
+      <ul >
+        <% @user.played_instruments.each do |played_instrument| %>
+          <li><h4> Instrument: <%= played_instrument.instrument.name %> <h4></li>
+          <li><h6> Level: <%= played_instrument.level %> </h6></li>
+          <li> <h4> Description: <%= played_instrument.description %> </h4></li>
+        <% end %>
+      </ul>
+
+
+      <%= link_to "Home", users_path%>
+    </div>
+  </div>
+</div>
