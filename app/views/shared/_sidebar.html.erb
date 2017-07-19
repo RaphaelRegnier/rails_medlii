@@ -1,6 +1,16 @@
-
+<% if user_signed_in? %>
   <div class="sidebar">
-    <ul>
+    <ul class="sidebar-list">
+      <li>
+      <%= link_to current_user do %>
+        <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
+        <%= image_tag avatar_url, class: 'avatar-square'%>
+      <% end %>
+      </li>
+      <li>
+        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>, <h3><%= current_user.age %></h3></h2>
+      </li>
+      <div class="h_line"></div>
       <li>
         <%= link_to edit_user_registration_path do %>
           <h3>Edit Profile</h3>
@@ -18,6 +28,5 @@
       <span></span>
       <span></span>
     </div>
-
   </div>
-
+<% end %>

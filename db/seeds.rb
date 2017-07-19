@@ -37,5 +37,5 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
 end
 
 
-admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: 'Downtown, Montreal')
+admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
 
