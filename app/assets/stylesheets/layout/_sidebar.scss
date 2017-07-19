@@ -18,15 +18,22 @@
 .sidebar-list {
   list-style: none;
   text-decoration: none;
-  margin-left: 20px;
+  text-align: center;
+  margin-right: 35px;
+  margin-top: 60px;
   h2 {
-    font-family: 'Raleway', sans-serif;;
+    font-family: 'Comfortaa', cursive;
     font-size: 20px;
+    font-weight: bold;
   }
   h3 {
-    font-family: 'Raleway', sans-serif;;
+    font-family: 'Comfortaa', cursive;
     font-size: 14px;
   }
+}
+
+.age-font-size {
+  font-size: 16px;
 }
 
 .sidebar-btn {
@@ -54,8 +61,8 @@
 }
 
 .h_line {
-  width: 60%;
-  height: 1px;
+  width: 100%;
+  border: 1px solid #babfc6;
 }
 
 .container {

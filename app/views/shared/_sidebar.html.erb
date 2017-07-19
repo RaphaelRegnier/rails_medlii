@@ -6,17 +6,17 @@
         <%= image_tag avatar_url, class: 'avatar-square'%>
       </li>
       <li>
-        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>, <%= current_user.age %></h2>
+        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>. <span class="age-font-size"><%= current_user.age %></span></h2>
       </li>
       <div class="h_line"></div>
       <li>
         <%= link_to edit_user_registration_path do %>
-          <h3>Edit Profile</h3>
+          <i class="fa fa-user"></i>  <%= t(".edit", default: "Edit Profile") %>
         <% end %>
       </li>
       <li>
-        <%= link_to destroy_user_session_path do %>
-          <h3>SIGN OUT</h3>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "SIGN OUT") %>
         <% end %>
       </li>
     </ul>
