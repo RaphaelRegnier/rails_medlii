@@ -4,24 +4,24 @@ PlayedInstrument.destroy_all
 User.destroy_all
 
 # COMMENT THESE LINES AFTER ONE SEED
-# Instrument.destroy_all
-# url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
-# html_file = open(url)
-# html_doc = Nokogiri::HTML(html_file)
+Instrument.destroy_all
+url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
+html_file = open(url)
+html_doc = Nokogiri::HTML(html_file)
 
-# instruments = []
+instruments = []
 
-# html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
+html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
 
-#   instruments << element.text.match(/\A[a-zA-Z\s\/\'\"\’]*/)[0]
-# end
+  instruments << element.text.match(/\A[a-zA-Z\s\/\'\"\’]*/)[0]
+end
 
-# instruments.each do |instrument|
-#   Instrument.create(name: instrument.capitalize)
-# end
+instruments.each do |instrument|
+  Instrument.create(name: instrument.capitalize)
+end
 
-# Instrument.find_by(name: "Instrument ").destroy
-# Instrument.find_by(name: "T").destroy
+Instrument.find_by(name: "Instrument ").destroy
+Instrument.find_by(name: "T").destroy
 
 # < ------------------------------------------------------------------- UP TO HERE --->
 i = 0
