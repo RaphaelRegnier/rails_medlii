@@ -1,5 +1,5 @@
 .sidebar {
-  background: white;
+  background: #F4EADE;
   height: 100%;
   width: 300px;
   left: -300px;
@@ -15,14 +15,25 @@
   left: 0px;
 }
 
-ul {
-  margin: 0px;
-  padding: 0px;
-  li {
+.sidebar-list {
   list-style: none;
-  border-bottom: 1px solid;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 35px;
+  margin-top: 60px;
+  h2 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    font-weight: bold;
   }
+  h3 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+  }
+}
 
+.age-font-size {
+  font-size: 16px;
 }
 
 .sidebar-btn {
@@ -48,13 +59,20 @@ ul {
     width: 50%;
   }
 }
+
+.h_line {
+  width: 100%;
+  border: 1px solid #babfc6;
+}
+
 .container {
   margin-top: 30px;
-  margin-left: 0px;
-  transition: margin-left, 0.3s linear;
+/*  margin-left: 0px;*/
+/*  transition: margin-left, 0.3s linear;*/
 }
 
 .move-container {
-  margin-left: 300px;
-  opacity: 0.5;
+/*  margin-left: 300px;*/
+  opacity: 0.3;
 }
+
