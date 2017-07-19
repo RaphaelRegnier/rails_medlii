@@ -3,12 +3,38 @@
      <div class="col-xs-10 col-xs-offset-1">
 
 <%= simple_form_for [@played_instrument]  do |f| %>
-  <%= f.input :instrument, collection: Instrument.all%>
-  <%= f.input :level, collection: (1..10)%>
+  <%= f.input :instrument, label: "Instrument", collection: Instrument.all%>
+
+  <div class="level">
+  <h4>Level : </h4>
+  <div class="ratingComponent__rating">
+    <div id="5" class="ratingComponent__dot unRated"></div>
+    <div id="4" class="ratingComponent__dot unRated"></div>
+    <div id="3" class="ratingComponent__dot unRated"></div>
+    <div id="2" class="ratingComponent__dot unRated"></div>
+    <div id="1" class="ratingComponent__dot unRated"></div>
+  </div>
+</div>
+
+  <%= f.input :level, as: :hidden%>
   <%= f.button :submit, class: 'btn btn-raised btn-primary' %>
 <% end %>
+
 
      </div>
    </div>
  </div>
 
+<% content_for :after_js do %>
+
+<script>
+$('.ratingComponent__dot').on('click', function(){
+$(this).addClass("hover")
+$(this).prevAll().removeClass("hover")
+var level = $(this).attr('id');
+console.log(level);
+$('#played_instrument_level').val(level);
+});
+</script>
+
+<% end %>
