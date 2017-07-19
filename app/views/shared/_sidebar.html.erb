@@ -2,13 +2,11 @@
   <div class="sidebar">
     <ul class="sidebar-list">
       <li>
-      <%= link_to current_user do %>
         <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: 'avatar-square'%>
-      <% end %>
       </li>
       <li>
-        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>, <h3><%= current_user.age %></h3></h2>
+        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>, <%= current_user.age %></h2>
       </li>
       <div class="h_line"></div>
       <li>
@@ -18,7 +16,7 @@
       </li>
       <li>
         <%= link_to destroy_user_session_path do %>
-          <h4>SIGN OUT</h4>
+          <h3>SIGN OUT</h3>
         <% end %>
       </li>
     </ul>
