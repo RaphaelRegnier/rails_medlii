@@ -25,11 +25,19 @@
     font-family: 'Comfortaa', cursive;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
-  h3 {
+  p {
     font-family: 'Comfortaa', cursive;
     font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0px;
   }
+}
+
+.margin-bottom {
+  margin-bottom: 40px;
 }
 
 .age-font-size {
@@ -75,4 +83,3 @@
 /*  margin-left: 300px;*/
   opacity: 0.3;
 }
-
