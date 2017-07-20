@@ -1,3 +1,9 @@
+.body_new_played_inst{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
 .level{
   display: flex;
   justify-content: flex-start;
@@ -9,6 +15,14 @@
 #button_go{
   width: 70vw;
   margin-left: 15vw;
+}
+
+.new_played{
+margin-top: 12vh;
+}
+
+#new_played_instrument{
+  margin-top: 4vh;
 }
 
 .level_description{
@@ -24,7 +38,7 @@
   border-left: 1px lightgrey solid;
   padding-left: 12px;
   padding-right: 12px;
-  margin-top: 5vh;
+  margin-top: 10px;
 }
 
 .card_new_played{
@@ -32,6 +46,7 @@
   padding: 5px 12px;
   margin-top: 2vh;
   height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   position: relative;
   #instrument_label{font-size: 15px;
     font-weight: bold;
