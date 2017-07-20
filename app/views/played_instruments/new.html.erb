@@ -2,9 +2,18 @@
   <div class="row ">
     <div class="col-xs-10 col-xs-offset-1">
 
+
       <div id="new_played_instrument">
-      <%= render 'form_played_instrument', played_instrument: @played_instrument %>
+        <div id="all_played_instruments">
+          <% current_user.played_instruments.each do |played_instrument| %>
+          <%= render 'show', played_instrument: played_instrument %>
+          <% end %>
+        </div>
+        <div id="form_played_instrument">
+        <%= render 'form_played_instrument', played_instrument: @played_instrument %>
+        </div>
       </div>
+
 
     </div>
   </div>
@@ -13,6 +22,7 @@
 <% content_for :after_js do %>
 
 <script>
+function dots(){
   $('.ratingComponent__dot').on('click', function(){
     $(this).addClass("hover")
     $(this).prevAll().removeClass("hover")
@@ -36,7 +46,8 @@
   $('#5').on('click', function(){
     $('.level_description').empty().append('<p>5: <i>pro</i> </p>')
   });
-
+};
+dots()
 </script>
 
 <% end %>
