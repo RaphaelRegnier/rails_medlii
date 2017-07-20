@@ -1,7 +1,7 @@
 .level{
   display: flex;
   justify-content: flex-start;
-  h4{font-size: 17px;
+  h4{font-size: 15px;
     font-weight: bold;
   }
 }
@@ -29,12 +29,45 @@
 
 .card_new_played{
   border: 1px lightgrey solid;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 5px 12px;
   margin-top: 2vh;
   height: auto;
   position: relative;
+  #instrument_label{font-size: 15px;
+    font-weight: bold;
+  }
+  #instrument_name{
+    border-bottom: solid 2px #009688;
+    display: flex;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    font-weight: 500;
+    #name_margin_left{
+      margin-left: 3px;
+    }
+  }
+  #flexbox_level{
+    display: flex;
+    margin-top: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0px;
+
+    #level_text{
+      font-size: 15px;
+      font-weight: bold;
+    }
+    #circles_level{
+ color: white;
+ font-weight: lighter;
+ display: flex;
+ padding: 0px 15px;
+
+    }
+  }
 }
+
+
 
 #button-flex{
   display:flex;
