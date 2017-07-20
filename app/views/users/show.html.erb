@@ -1,39 +1,42 @@
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col-xs-12">
-        <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: 'avatar-square'%>
-      <ul class = "list-unstyled">
-        <li> <h2><%= @user.first_name.upcase%> <%=@user.last_name.first %>.<h2> </li>
-        <li> <h5> <%= @user.age %> <h5></li>
-        <li> <h5> <%= @user.location %> </h5> </li>
-        <li> <h5> <%= @user.description %> </h5> </li>
-        <li><i class="fa fa-comments-o" aria-hidden="true"></i>
-      </ul>
+<div class = "wrapper">
+  <div class="container text-center card-profile">
+    <div class="row">
+      <div class="col-xs-12">
+          <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: 'avatar-square-profile'%>
+        <ul class = "list-unstyled ">
+          <li> <h3><%= @user.first_name.upcase%> <%=@user.last_name.first %>.<h3> </li>
+          <li> <h5> <%= @user.age %> <h5></li>
+          <li> <h5> <%= @user.location %> </h5> </li>
+          <li> <h5> <%= @user.description %> </h5> </li>
+          <li class = "chat-icon"><a href="/users"> <i class="fa fa-comments-o" aria-hidden="true"></i></a>
+        </ul>
+      </div>
     </div>
   </div>
 
 
-<div class="container text-center">
-  <div class="row">
-    <% @user.played_instruments.each do |played_instrument| %>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <ul class = "list-unstyled">
-          <li><h4> Instrument: <%= played_instrument.instrument.name %> <h4></li>
-          <li><h6> Level: <% played_instrument.level.times do %>
-            <i class="fa fa-circle"></i>
-            <% end %>
-            <% (5 - played_instrument.level).times do %>
-              <i class="fa fa-circle-o"></i>
-            <% end %> </li>
-          <li> <h4> <%= played_instrument.description %> </h4></li>
-        </ul>
-      </div>
-    <% end %>
+
+  <div class="container text-center">
+    <div class="row">
+      <% @user.played_instruments.each do |played_instrument| %>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <ul class = "list-unstyled">
+            <li class = "instrument"><h4> Instrument: <%= played_instrument.instrument.name %> <h4></li>
+            <li><h6> Level: <% played_instrument.level.times do %>
+              <i class="fa fa-circle"></i>
+              <% end %>
+              <% (5 - played_instrument.level).times do %>
+                <i class="fa fa-circle-o"></i>
+              <% end %> </li>
+            <li> <h4> <%= played_instrument.description %> </h4></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Home", users_path %>
   </div>
-  <%= link_to "Home", users_path %>
+</div>
 
 
-</div>
-</div>
