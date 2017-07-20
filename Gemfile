@@ -30,6 +30,8 @@ gem 'omniauth-facebook'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'simple-form-datepicker'
+gem 'bootstrap-datepicker-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

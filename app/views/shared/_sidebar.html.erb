@@ -22,7 +22,7 @@
       </li>
       <div class="h_line"></div>
       <li>
-        <%= link_to edit_user_registration_path do %>
+        <%= link_to edit_user_path(current_user) do %>
           <i class="fa fa-user"></i>  <%= t(".edit", default: "Edit Profile") %>
         <% end %>
       </li>

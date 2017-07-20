@@ -7,7 +7,7 @@
             <%= image_tag avatar_url, class: 'avatar-square-profile'%>
         <ul class = "list-unstyled list-inline ">
           <li> <p><%= @user.first_name.upcase%> <%=@user.last_name.first %>.<p> </li>
-          <li> <p> <%= @user.age %> <p></li>
+          <li> <p> <%= @user_age %> <p></li>
           <li class = "chat-icon"><a href="/users"> <i class="fa fa-comments-o" aria-hidden="true"></i></a>
         </ul>
       </div>
