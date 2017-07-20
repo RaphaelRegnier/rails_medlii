@@ -27,10 +27,16 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
+      user.age = (Date.today - Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')) / 365
+      ## call the public birthday from the facebook and calculate to the age
+      # When the Date calculated by strptime method, it will give us the result with the days.
+      # Divide by 365 is to calculate the exact person's age.
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
 
     return user
   end
+
 end
+
