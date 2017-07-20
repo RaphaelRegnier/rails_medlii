@@ -24,7 +24,13 @@ class PlayedInstrumentsController < ApplicationController
 
   def destroy
     @played_instrument = PlayedInstrument.find(params[:id])
-    @played_instrument.destroy
+
+    if @played_instrument.destroy
+     respond_to do |format|
+        format.html { redirect_to add_instruments_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    end
   end
 
   private

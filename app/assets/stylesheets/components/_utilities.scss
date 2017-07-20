@@ -2,9 +2,26 @@
   padding: 20px;
 }
 
+
+
 .margin {
-  margin: 10px;
+  margin-bottom: 10px;
 }
+
+.filter-row{
+  display:flex;
+  justify-content: space-around;
+}
+
+
+.btn-filter {
+  background-color: transparent !important;
+  color: white !important;
+  border: hidden !important;
+  padding: 13px 20px !important;
+  font-weight: lighter!important;
+}
+
 
 .form-login {
   margin-top: 10px;
@@ -25,3 +42,8 @@
 .label-floating {
   will-change: left, top, contents;
 }
+
+.musicians {
+background-color: #fafafa;
+}
+
