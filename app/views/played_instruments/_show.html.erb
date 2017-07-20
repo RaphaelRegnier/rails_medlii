@@ -1,5 +1,16 @@
-<div class="card_new_played">
-<p> <%= Instrument.find(played_instrument.instrument_id).name %>
-<%= played_instrument.level %>
-</p>
+<div class="card_new_played" data-played_instrument-id=<%=played_instrument.id %> >
+  <div id="instrument_label">Instrument</div>
+  <div id="instrument_name"> <span id="name_margin_left"> <%= Instrument.find(played_instrument.instrument_id).name %> </span></div>
+  <div id= "flexbox_level">
+    <span id="level_text">Level :</span>
+    <div id="circles_level">
+        <% played_instrument.level.times do %>
+        <div class="dot-filled"></div>
+        <% end %>
+        <% (5 - played_instrument.level).times do %>
+        <div class="dot"></div>
+        <% end %>
+    </div>
+  </div>
+ <%= link_to '', played_instrument, method: :delete, remote:true, id: 'destroy', class: 'fa fa-times cross' %>
 </div>

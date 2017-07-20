@@ -17,5 +17,8 @@
   );
   //reset
   $('#form_played_instrument').html("<%= j render 'form_played_instrument', played_instrument: PlayedInstrument.new() %>")
+  // reinitialize jquery listener for dots
   dots()
+  // link_to search page
+  $('#hidden-link').removeClass("hidden");
 <% end %>

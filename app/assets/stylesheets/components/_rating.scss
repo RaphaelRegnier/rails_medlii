@@ -42,3 +42,21 @@ $platinum:          #ffffff;  // #E0E0E0
     }
   }
 }
+
+.dot{
+background-color: transparent;
+    border: solid 3px $cadmium;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 7px 0 0;
+}
+
+.dot-filled{
+  background-color: $cadmium;
+    border: solid 3px $cadmium;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 7px 0 0;
+}
