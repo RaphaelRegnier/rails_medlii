@@ -6,8 +6,8 @@
       <div class="form-inputs">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
-        <%= f.input :age, as: :integer %>
-        <%= f.input :location, as: :string, placeholder: "5333 Casgrain Ave" %>
+        <%= f.input :birth_date, input_html: { class: 'datepicker'} %>
+        <%= f.input :location, as: :string, label: 'Address', placeholder: "5333 Casgrain Ave" %>
         <%= f.input :description, as: :text, hint: "Tell us about yourself" %>
         <%= f.input :photo, as: :attachinary %>
       </div>
@@ -21,3 +21,4 @@
     </div>
   </div>
 </div>
+
