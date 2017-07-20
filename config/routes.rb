@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 
-  resources :played_instruments, only: [:create, :destroy]
-  get "add_instruments", to: "users#add_instruments"
+  resources :played_instruments, only: [:create, :destroy, :new]
+  #get "add_instruments", to: "users#add_instruments"
 
   resources :users, only: [:show, :index]
 

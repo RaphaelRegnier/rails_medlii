@@ -1,0 +1,44 @@
+// Colour variables
+$cadmium:           #ffffff;  // #EB822F
+$platinum:          #ffffff;  // #E0E0E0
+
+// Styles
+.ratingComponent {
+  margin: 20px;
+    text-align: center;
+  &__rating {
+    display: flex;
+      flex-direction: row-reverse;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 0px 15px;
+  }
+  &__dot {
+    background-color: transparent;
+    border: solid 3px $cadmium;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 7px 0 0;
+    &:first-of-type {
+      margin: 0;
+    }
+    &.filled {
+      background-color: $cadmium;
+    }
+    &.unRated {
+      background-color: transparent;
+      border-color: $platinum;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+      &.hover,
+      &.hover~ .ratingComponent__dot,
+      &:focus,
+      &:focus ~ .ratingComponent__dot {
+        border-color: $cadmium;
+        background-color: $cadmium;
+      }
+    }
+  }
+}

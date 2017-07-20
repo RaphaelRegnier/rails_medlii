@@ -1,0 +1,28 @@
+<%= simple_form_for(played_instrument, remote: true) do |f| %>
+<div class="partial_form">
+  <%= f.input :instrument, label: "Instrument", collection: Instrument.all%>
+
+  <div class="level">
+    <h4>Level : </h4>
+    <div class="ratingComponent__rating">
+      <div id="5" class="ratingComponent__dot unRated"></div>
+      <div id="4" class="ratingComponent__dot unRated"></div>
+      <div id="3" class="ratingComponent__dot unRated"></div>
+      <div id="2" class="ratingComponent__dot unRated"></div>
+      <div id="1" class="ratingComponent__dot unRated"></div>
+    </div>
+  </div>
+
+  <%= f.input :level, as: :hidden%>
+  <div class= "level_description"></div>
+</div>
+
+<div class="wrap-add-instrument">
+  <div class="flex-add-instrument">
+    Add instrument
+    <%= button_tag type: 'submit', class: 'btn btn-primary btn-fab', id: 'button-flex' do %>
+    <i class="material-icons" id="add_button">add </i>
+    <% end %>
+  </div>
+</div>
+<% end %>
