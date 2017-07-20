@@ -9,11 +9,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def add_instruments
-    @instruments = Instrument.all
-    @played_instrument = PlayedInstrument.new()
-  end
-
   def edit
   end
 

@@ -1,0 +1,21 @@
+<% if @played_instrument.errors.any? %>
+  // Render new form with errors
+  $('#form_played_instrument').html("<%= j render 'form_played_instrument', played_instrument: @played_instrument %>");
+  dots()
+<% else %>
+  // Create a paragraph for the new played_instrument. But hide it.
+  var new_played_instrument = $("<%= j render 'show', played_instrument: @played_instrument %>").hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#all_played_instruments').append(new_played_instrument);
+  // Show the new played_instrument with an animation!
+  new_played_instrument
+  .css('opacity', 0)
+  .slideDown('0.5s')
+  .animate(
+    { opacity: 1 },
+    { queue: false, duration: '0.7s' }
+  );
+  //reset
+  $('#form_played_instrument').html("<%= j render 'form_played_instrument', played_instrument: PlayedInstrument.new() %>")
+  dots()
+<% end %>

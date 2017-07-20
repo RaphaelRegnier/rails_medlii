@@ -3,5 +3,67 @@
   justify-content: flex-start;
   h4{font-size: 17px;
     font-weight: bold;
+  }
 }
+
+#button_go{
+  width: 70vw;
+  margin-left: 15vw;
+}
+
+.level_description{
+  p{
+    padding:0px;
+    margin: 5px 0px;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+}
+
+.partial_form{
+  border-left: 1px lightgrey solid;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 5vh;
+}
+
+.card_new_played{
+  border: 1px lightgrey solid;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 2vh;
+  height: auto;
+  position: relative;
+}
+
+#button-flex{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:35px;
+  width:35px;
+  padding: 0px;
+}
+
+#add_button{
+  top: 0px;
+  font-size: 33px;
+}
+
+.wrap-add-instrument{
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  padding: 10px 5px;
+  height: 65px;
+  align-items: center;
+}
+
+.flex-add-instrument{
+ display:flex;
+ align-items:center;
+ position: absolute;
+ right: 5vw;
+ width: 165px;
+ justify-content: space-around;
 }
