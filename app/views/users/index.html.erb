@@ -1,18 +1,11 @@
-<div class="container musicians">
+<div id="toggle_for_sidebar"></div>
 
-  <div class="container scaling">
-    <div class="slider shor noUi-target noUi-ltr noUi-horizontal noUi-connect">
-      <div class="noUi-base">
-        <div class="noUi-origin noUi-background" style="left: 40%;">
-          <div class="noUi-handle noUi-handle-lower">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container margin-top">
+  <div class="row">
 
-  <div class="container">
-    <div class="row">
+    <!-- THIS IS THE FILTER TO BLACKEN THE PAGE WHEN SIDEBAR IS ACTIVE -->
+
+
       <div class ="col-xs-4">
          <%= render 'form_age' %>
         <%= link_to 'age', user_registration_path, class: "btn btn-raised btn-filter"%>
@@ -26,47 +19,24 @@
          <%= render 'form_level' %>
         <%= link_to 'level', user_registration_path, class: "btn btn-raised btn-filter"%>
       </div>
-    </div>
-  </div>
+ 
 
 
 
-  <div class="container">
-    <div class="row">
-      <% @users.each do |user| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 cold-lg-2" >
+    <% @users.each do |user| %>
+    <div class="col-xs-12">
 
-        <div class="card margin">
-          <div class="card-left">
-            <% avatar_url = user.facebook_picture_url || cl_image_path(user.photo.path) || "http://placehold.it/30x30" %>
-            <%= image_tag avatar_url, class: 'card-pic'%>
-          </div>
+      <div class="card-medlii" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
+        <div class="card-content">
 
-          <div class="card-right">
-            <ul class = "list-unstyled padded">
-              <li class = "card-category"> <%= user.first_name %> <%= user.last_name.first %>. <span class="age"><%= user.age %></span> </li>
-              <li>
-                  <% user.played_instruments.first(3).each do |played_instrument| %>
-                    <p><%= played_instrument.instrument.name.first(10) %>
-                      <% played_instrument.level.times do %>
-                        <i class="fa fa-circle"></i>
-                      <% end %>
-                      <% (5 - played_instrument.level).times do %>
-                        <i class="fa fa-circle-o"></i>
-                      <% end %>
-                    </p>
-                    <% end %>
-                  <% if user.played_instruments.length > 3 %>
-                    <p> ... </p>
-                  <% end %>
-              </li>
-              <li> <%= user.location %> </li>
-              <%= link_to '', user_path(user), class: "card-link" %>
-            </ul>
-          </div>
+
+
+
         </div>
       </div>
-      <% end %>
+
     </div>
+    <% end %>
   </div>
 </div>
+
