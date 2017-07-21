@@ -1,42 +1,16 @@
 <% if user_signed_in? %>
   <div class="sidebar">
-    <ul class="sidebar-list">
-      <li>
-        <% avatar_url = current_user.facebook_picture_url || cl_image_path(current_user.photo.path) || "http://placehold.it/30x30" %>
-        <%= image_tag avatar_url, class: 'avatar-square'%>
-      </li>
-      <li>
-        <h2><%= current_user.first_name %> <%= current_user.last_name.capitalize.first %>. <span class="age-font-size"><%= current_user.age %></span></h2>
-      </li>
-      <li class="margin-bottom">
-        <% current_user.played_instruments.each do |played_instrument| %>
-        <p><%= played_instrument.instrument.name %>
-          <% played_instrument.level.times do %>
-              <i class="fa fa-circle"></i>
-          <% end %>
-          <% (5 - played_instrument.level).times do %>
-              <i class="fa fa-circle-o"></i>
-          <% end %>
-        </p>
-        <% end %>
-      </li>
-      <div class="h_line"></div>
-      <li>
-        <%= link_to edit_user_path(current_user) do %>
-          <i class="fa fa-user"></i>  <%= t(".edit", default: "Edit Profile") %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "SIGN OUT") %>
-        <% end %>
-      </li>
-    </ul>
 
-    <div class="sidebar-btn">
-      <span></span>
-      <span></span>
-      <span></span>
+<div class="sidebar-decoration" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
+<div class="sidebar-people" style=" background-image: url('<%= image_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
+<div id="cross-sidebar"> <i class="material-icons">clear</i></div>
+</div>
+
+    <div class="links-sidebar">
+      <%= link_to 'MY MEDLII', user_path(current_user), class: 'link-sidebar' %>
+        <%= link_to 'EDIT PROFILE', edit_user_registration_path(current_user), class: 'link-sidebar' %>
+
+        <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', method: :delete %>
     </div>
   </div>
 <% end %>
