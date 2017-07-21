@@ -39,8 +39,10 @@ class User < ApplicationRecord
   end
 
   def self.search(search)
-    where("title ILIKE ? OR author ILIKE ?", "%#{search}%", "%#{search}%")
+    where("age ILIKE ? AND instrument ILIKE ? AND level?")
   end
-
 end
+
+
+
 

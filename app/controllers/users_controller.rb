@@ -8,8 +8,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if params[:age]
+      @users = User.search(params[:age]).order("created_at DESC")
+      @users = []
+        @users.each do |user|
+      @users << user
+        end
+    elsif
+      @users = User.all
+    end
   end
+
 
   def edit
   end
@@ -31,6 +40,5 @@ class UsersController < ApplicationController
   end
 
   def age(birthday)
-
   end
 end

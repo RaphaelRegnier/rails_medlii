@@ -14,24 +14,26 @@
   <div class="container">
     <div class="row">
       <div class ="col-xs-4">
-         <%= render 'form_instrument' %>
-        <%= link_to 'instrument', user_registration_path, class: "btn btn-raised btn-filter"%>
+         <%= render 'form_age' %>
+        <%= link_to 'age', user_registration_path, class: "btn btn-raised btn-filter"%>
 
       </div>
       <div class ="col-xs-4">
-      <%= render 'form_level' %>
-        <%= link_to 'level', user_registration_path, class: "btn btn-raised btn-filter"%>
+         <%= render 'form_instrument' %>
+        <%= link_to 'instrument', user_registration_path, class: "btn btn-raised btn-filter"%>
       </div>
       <div class ="col-xs-4">
-      <%= render 'form_age' %>
-        <%= link_to 'age', user_registration_path, class: "btn btn-raised btn-filter"%>
+         <%= render 'form_level' %>
+        <%= link_to 'level', user_registration_path, class: "btn btn-raised btn-filter"%>
       </div>
     </div>
   </div>
 
+
+
   <div class="container">
     <div class="row">
-      <% @users.each do | user | %>
+      <% @users.each do |user| %>
       <div class="col-xs-12 col-sm-6 col-md-4 cold-lg-2" >
 
         <div class="card margin">
@@ -59,7 +61,7 @@
                   <% end %>
               </li>
               <li> <%= user.location %> </li>
-              <%= link_to '', users_path, class: "card-link" %>
+              <%= link_to '', user_path(user), class: "card-link" %>
             </ul>
           </div>
         </div>

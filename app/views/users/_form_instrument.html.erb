@@ -1,3 +1,4 @@
 <%= simple_form_for(users_path, remote: true) do |f| %>
-<%= f.input :instrument_id, label: "Instrument", collection: Instrument.all%>
+<%= f.input :instrument, label: "Instrument", collection: Instrument.all%>
 <% end %>
+
