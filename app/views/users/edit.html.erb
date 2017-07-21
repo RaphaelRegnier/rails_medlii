@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <h2>Edit Profile</h2>
+      <%= simple_form_for(@user, url: user_path(current_user), html: { method: :get }) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :birth_date, input_html: { class: 'datepicker'} %>
+        <%= f.input :location, as: :string, label: 'Address', placeholder: "5333 Casgrain Ave" %>
+        <%= f.input :description, as: :text, hint: "Tell us about yourself" %>
+        <%= f.input :photo, as: :attachinary %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "UPDATE", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+      <%= link_to new_played_instrument_path do %>
+        <%= "Edit Instruments" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :played_instruments, only: [:create, :destroy, :new]
   #get "add_instruments", to: "users#add_instruments"
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :edit, :index]
 
 mount Attachinary::Engine => "/attachinary"
 

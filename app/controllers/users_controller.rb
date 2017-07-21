@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :add_instruments, :edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :add_instruments, :edit, :destroy]
 
   def show
+    birthday = @user.birth_date
+    now = Date.today
+    @user_age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
   end
 
   def index
@@ -27,4 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def age(birthday)
+
+  end
 end
