@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
-  validates :first_name, :last_name, :email, :birth_date, :location, presence: true
+  validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
@@ -27,7 +27,6 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user.birth_date = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
       user.age = (Date.today - Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')) / 365
       ## call the public birthday from the facebook and calculate to the age
       # When the Date calculated by strptime method, it will give us the result with the days.
