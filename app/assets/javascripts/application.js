@@ -18,8 +18,17 @@ $(document).ready(function() {
   $('.attachinary-input').attachinary();
   $('.sidebar-btn').click(function(){
     $('.sidebar').toggleClass('sidebar-visible');
-    $('.container').toggleClass('move-container');
+    $('#toggle_for_sidebar').toggleClass('dark-filter');
   });
+  $('#cross-sidebar').click(function(){
+    $('.sidebar').toggleClass('sidebar-visible');
+    $('#toggle_for_sidebar').toggleClass('dark-filter');
+  });
+  $('.link-sidebar').click(function(){
+    $('.link-sidebar').removeClass('active')
+    $(this).addClass('active');
+  });
+
   $.material.init();
 });
 
