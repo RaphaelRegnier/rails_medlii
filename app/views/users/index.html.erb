@@ -14,12 +14,16 @@
   <div class="container">
     <div class="row">
       <div class ="col-xs-4">
+         <%= render 'form_instrument' %>
         <%= link_to 'instrument', user_registration_path, class: "btn btn-raised btn-filter"%>
+
       </div>
       <div class ="col-xs-4">
+      <%= render 'form_level' %>
         <%= link_to 'level', user_registration_path, class: "btn btn-raised btn-filter"%>
       </div>
       <div class ="col-xs-4">
+      <%= render 'form_age' %>
         <%= link_to 'age', user_registration_path, class: "btn btn-raised btn-filter"%>
       </div>
     </div>

@@ -1,0 +1,6 @@
+
+<%= simple_form_for(users_path, remote: true) do |f| %>
+<%= f.input :age,  label: "Age", collection: 18..60 %>
+
+<% end %>
+

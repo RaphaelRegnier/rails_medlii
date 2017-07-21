@@ -1,0 +1,4 @@
+
+<%= simple_form_for(users_path, remote: true) do |f| %>
+<%= f.input :instrument_id, label: "Level", collection: (1..5) %>
+<% end %>
