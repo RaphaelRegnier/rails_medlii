@@ -2,8 +2,10 @@
   width: 30px;
 }
 .avatar-large {
-  width: 50px;
+  width: 125px;
   border-radius: 50%;
+  position: relative;
+  z-index: 1;
 }
 .avatar-bordered {
   width: 30px;

@@ -3,7 +3,7 @@
   <div id="instrument_name"> <span id="name_margin_left"> <%= Instrument.find(played_instrument.instrument_id).name %> </span></div>
   <div id= "flexbox_level">
     <span id="level_text">Level :</span>
-    <div id="circles_level">
+    <div class = "circles_level">
         <% played_instrument.level.times do %>
         <div class="dot-filled"></div>
         <% end %>

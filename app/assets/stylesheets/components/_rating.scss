@@ -60,3 +60,18 @@ background-color: transparent;
     border-radius: 50%;
     margin: 0 7px 0 0;
 }
+
+.dot-filled-blue{
+background-color: $blue;
+    border: solid 2px $blue;
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 5px 0 0;
+}
+
+.dot-blue{
+    border: solid 2px $blue;
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 5px 0 0;
+}

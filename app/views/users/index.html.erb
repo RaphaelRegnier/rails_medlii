@@ -1,42 +1,60 @@
-<div id="toggle_for_sidebar"></div>
-
-<div class="container margin-top">
-  <div class="row">
-
     <!-- THIS IS THE FILTER TO BLACKEN THE PAGE WHEN SIDEBAR IS ACTIVE -->
+    <div id="toggle_for_sidebar"></div>
 
+    <div class="container margin-top">
+      <div class="row">
 
-      <div class ="col-xs-4">
+        <div class ="col-xs-4">
          <%= render 'form_age' %>
-        <%= link_to 'age', user_registration_path, class: "btn btn-raised btn-filter"%>
-
-      </div>
-      <div class ="col-xs-4">
+       </div>
+       <div class ="col-xs-4">
          <%= render 'form_instrument' %>
-        <%= link_to 'instrument', user_registration_path, class: "btn btn-raised btn-filter"%>
-      </div>
-      <div class ="col-xs-4">
+       </div>
+       <div class ="col-xs-4">
          <%= render 'form_level' %>
-        <%= link_to 'level', user_registration_path, class: "btn btn-raised btn-filter"%>
-      </div>
- 
+       </div>
 
+       <% @users.each do |user| %>
+       <div class="col-xs-12">
 
+        <div class="card-medlii" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
+          <div class="flexbox-profile-picture">
+            <% avatar_url = user.facebook_picture_url || cl_image_path(user.photo.path) || "http://placehold.it/30x30" %>
 
-    <% @users.each do |user| %>
-    <div class="col-xs-12">
+            <%= image_tag avatar_url, class: 'avatar-large' %>
+          </div>
 
-      <div class="card-medlii" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
-        <div class="card-content">
+            <!-- USER AGE IN HERE  -->
+          <div id="age"> 21</div>
 
+          <div class="card-content">
 
+            <div class="user-info">
 
+              <%= user.first_name.upcase %> <%= user.last_name.upcase %>
+            </div>
 
+            <div class="user-instruments">
+              <%  user.played_instruments.first(3).each do |played_instrument| %>
+              <div class="instrument-level">
+              <%= truncate(Instrument.find(played_instrument.instrument_id).name, length: 20) %>
+                <div class ="circles_level">
+                  <% played_instrument.level.times do %>
+                  <div class="dot-filled dot-filled-blue"></div>
+                  <% end %>
+                  <% (5 - played_instrument.level).times do %>
+                  <div class="dot dot-blue"></div>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
         </div>
-      </div>
 
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>
 

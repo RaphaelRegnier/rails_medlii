@@ -1,5 +1,5 @@
 require "open-uri"
-
+puts "SEEDING..."
 PlayedInstrument.destroy_all
 User.destroy_all
 
@@ -8,12 +8,12 @@ User.destroy_all
 # url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
 # html_file = open(url)
 # html_doc = Nokogiri::HTML(html_file)
-
+# puts "SEEDING INSTRUMENTS..."
 # instruments = []
 
 # html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
 
-#   instruments << element.text.match(/\A[a-zA-Z\s\/\'\"\’]*/)[0]
+#   instruments << element.text.match(/\A[a-zA-Z\s\'\"\’]*/)[0]
 # end
 
 # instruments.each do |instrument|
@@ -32,12 +32,14 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
   user = User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(15, 65), photo_url: profiles_pic[i])
   i+=1
   rand(1..5).times do
-    PlayedInstrument.create(level: rand(1..5), instrument_id: rand(0..546), user: user)
+    PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: user)
   end
 end
 
 
 admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', birth_date: "1996/02/27", location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
 3.times do
-  PlayedInstrument.create(level: rand(1..5), instrument_id: rand(0..546), user: User.find_by(first_name: "Pika"))
+  PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: User.find_by(first_name: "Pika"))
 end
+
+puts "done seeding !"
