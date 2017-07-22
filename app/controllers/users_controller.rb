@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:instrument_id]
-      @users =  Instrument.find(params[:instrument_id]).users
-
+      @users  =  Instrument.find(params[:instrument_id]).users
     elsif
       @users = User.all
     end
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-
+    @user = User.find(params[:id])
   end
 
   def age(birthday)
