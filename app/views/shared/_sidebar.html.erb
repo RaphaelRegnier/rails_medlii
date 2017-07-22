@@ -1,4 +1,3 @@
-<% if user_signed_in? %>
   <div class="sidebar">
 
 <div class="sidebar-decoration" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
@@ -13,4 +12,4 @@
         <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', method: :delete %>
     </div>
   </div>
-<% end %>
+

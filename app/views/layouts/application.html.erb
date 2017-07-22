@@ -12,9 +12,9 @@
 
   </head>
   <body>
-    <%= render 'shared/sidebar' %>
+    <%= render 'shared/sidebar' if user.signed_in?%>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' if user.signed_in? %>
     <%= yield %>
 
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
