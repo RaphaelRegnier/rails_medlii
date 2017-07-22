@@ -8,17 +8,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    if params[:age]
-      @users = User.search(params[:age]).order("created_at DESC")
-      @users = []
-        @users.each do |user|
-      @users << user
-        end
+    if params[:instrument_id]
+      @users =  Instrument.find(params[:instrument_id]).users
+
     elsif
       @users = User.all
     end
   end
-
 
   def edit
   end
@@ -32,11 +28,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :description, :photo)
+    params.require(:user).permit(:name, :description, :photo, :instrument_id)
   end
 
   def set_user
-    @user = User.find(params[:id])
+
   end
 
   def age(birthday)

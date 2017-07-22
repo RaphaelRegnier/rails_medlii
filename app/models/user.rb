@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
@@ -12,6 +12,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :location_changed?
 
   has_attachment :photo
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -39,10 +40,6 @@ class User < ApplicationRecord
   end
 
   def self.search(search)
-    where("age ILIKE ? AND instrument ILIKE ? AND level?")
+    where("instruments_id ILIKE ?", '{#search}')
   end
 end
-
-
-
-

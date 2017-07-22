@@ -1,9 +1,4 @@
-
-<%= simple_form_for users_path, :method => 'get' do |f| %>
-  <%= f.input :age,  label: "Age",
-              collection: 18..60,
-              age: 'search' %>
-  <% button_tag type: 'submit' %>
+<%= form_tag users_path([:instrument_id]), method: :get do %>
+  <%= select_tag "instrument_id", options_from_collection_for_select(Instrument.all,"id", "name")%>
+  <%= submit_tag "go", name: nil, class: 'btn' %>
 <% end %>
-
-
