@@ -27,6 +27,7 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
+      user.birth_date = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
       user.age = (Date.today - Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')) / 365
       ## call the public birthday from the facebook and calculate to the age
       # When the Date calculated by strptime method, it will give us the result with the days.
