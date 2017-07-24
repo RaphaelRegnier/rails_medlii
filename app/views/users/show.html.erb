@@ -1,4 +1,7 @@
 <div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
+<%= link_to :back, id:'back-arrow' do %>
+   <i class="fa fa-angle-left" aria-hidden="true"></i>
+    <% end %>
   <div class="profile-page margin-top">
     <div class="flexbox-picture">
       <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>

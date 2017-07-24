@@ -85,7 +85,7 @@
   position: relative;
   top: 400px;
   width: 100%;
-  height: 300px;
+  height: 400px;
 }
 
 .flexbox-icon{
@@ -99,7 +99,7 @@
 }
 
 #icon-piano{
-  width: 50px;
+  width: 42px;
 }
 
 .for-profile{
@@ -110,4 +110,25 @@
 .instruments-container{
   display: flex;
   justify-content: center;
+}
+
+#back-arrow{
+  font-size: 45px;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: 70px;
+  opacity: 0.8;
+  padding: 8px 5px;
+  height: 60px;
+  align-items: center;
+  width: 60px;
+  justify-content: center;
+  z-index: 2;
+  &:focus{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+  }
 }
