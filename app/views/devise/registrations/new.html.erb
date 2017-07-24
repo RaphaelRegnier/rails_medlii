@@ -9,7 +9,7 @@
         <div class="form-inputs">
           <%= f.input :first_name %>
           <%= f.input :last_name %>
-          <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year, input_html: { class: 'datepicker'} %>
+          <%= f.input :birth_date, as: :string, start_year: Date.today.year - 110, end_year: Date.today.year, input_html: { class: 'datepicker'} %>
           <%= f.input :location, as: :string, label: 'Address', placeholder: "5333 Casgrain Ave" %>
           <%= f.input :description, as: :text, hint: "Tell us about yourself" %>
           <%= f.input :email, required: true, autofocus: true %>

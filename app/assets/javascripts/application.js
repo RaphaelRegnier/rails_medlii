@@ -26,11 +26,24 @@ $(document).ready(function() {
     $('.link-sidebar').removeClass('active');
     $(this).addClass('active');
   });
+  $('#link-message').click(function(){
+    $(this).toggleClass('shadow');
+    });
 //   if (window.location.pathname.includes('/users')) {
 //   $('#search').addClass('active');
 // }
 
   $.material.init();
+
+  $('.datepicker').datepicker();
+
+  setTimeout(function() {
+    $('.alert').slideUp()
+  }, 3000)
+
+  if ($(".alert").text().trim() == "") {
+    $(".alert").addClass("hide")
+  };
 });
 
 
