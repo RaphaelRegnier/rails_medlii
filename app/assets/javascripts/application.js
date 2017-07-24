@@ -26,9 +26,9 @@ $(document).ready(function() {
     $('.link-sidebar').removeClass('active');
     $(this).addClass('active');
   });
-  if (window.location.pathname.includes('/users')) {
-  $('#search').addClass('active');
-}
+//   if (window.location.pathname.includes('/users')) {
+//   $('#search').addClass('active');
+// }
 
   $.material.init();
 
