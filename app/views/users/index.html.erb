@@ -19,7 +19,11 @@
 
         <div class="card-medlii" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
           <div class="flexbox-profile-picture">
+          <% if user.photo.nil? %>
+            <% avatar_url = user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <% else %>
             <% avatar_url = user.facebook_picture_url || cl_image_path(user.photo.path) || "http://placehold.it/30x30" %>
+          <% end %>
 
             <%= image_tag avatar_url, class: 'avatar-large' %>
           </div>
