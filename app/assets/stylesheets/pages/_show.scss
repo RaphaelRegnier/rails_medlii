@@ -1,24 +1,148 @@
-
-.card-profile {
-  height: 25vh;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  position: relative;
-  background: rgba(248,248,255, 0.3);
-  margin-top:7vh;
-  shadow: 0 1px 3px #DFDFDF;
-  border-bottom: 1px solid #E0E0E0;
+.background{
+  background-repeat: repeat;
+  background-size: contain;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  top: 0px;
 }
 
-.wrapper {
-  height: 100vh;
-  margin-top:7vh;
+.flexbox-picture{
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 125px;
+ position: absolute;
+ top: 36px;
+}
+
+.profile-page{
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.user-show{
+ background-color: #F7F7F7;
+ top: 100px;
+ height: 300px;
+ position: absolute;
+ width: 100%;
+ padding-top: 75px;
+}
+
+.user-name-show{
+ display:flex;
+ align-items: center;
+ justify-content: center;
+ color: $blue;
+ font-family: 'Raleway', serif;
+ font-weight: 500;
+ position: relative;
+ font-size: 17px;
+}
+
+.user-description{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 30px;
+  font-family: 'Raleway', serif;
+  font-size: 15px;
+  text-align: justify;
+  bottom: 55px;
+  position: absolute;
+  top: 105px;
+}
+
+.link-message{
+  border: 1px solid $blue;
+  padding: 6px 118px;
+  color: $blue;
+  background-color: #F7F7F7;
+  &:focus{
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
+.message{
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+}
+
+.shadow{
+ box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-instruments{
+  position: relative;
+  top: 400px;
+  width: 100%;
+  height: 400px;
+}
+
+.flexbox-icon{
+  display: flex;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  justify-content: center;
+  align-items:center;
+  height: 100px;
+}
+
+#icon-piano{
+  width: 42px;
+}
+
+.for-profile{
+  top: 105px;
+  color: white;
+}
+
+.instruments-container{
+  display: flex;
+  justify-content: center;
+}
+
+#back-arrow{
+  font-size: 45px;
+  display: flex;
   color: white;
   position: absolute;
+  top: 70px;
+  opacity: 0.8;
+  padding: 8px 5px;
+  height: 60px;
+  align-items: center;
+  width: 60px;
+  justify-content: center;
+  z-index: 2;
+  &:focus{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+  }
 }
 
-.instrument {
-  border-color: #D5D5D5;
-  border-bottom: 0.5px solid;
+#age-show{
+position: absolute;
+font-size:17px;
+font-style: italic;
+bottom: 0px;
+right: -30px;
+z-index: 1;
+color: $blue;
 }
 
-
+#picture{
+  position: relative;
+}

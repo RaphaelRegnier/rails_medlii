@@ -4,4 +4,5 @@ class PlayedInstrument < ApplicationRecord
 validates_uniqueness_of :user_id, scope: :instrument_id
 validates :level, presence: true,  inclusion: { in: (1..5), allow_nil: false }
 validates :instrument, :user, presence: true
+default_scope { order(level: :desc) }
 end
