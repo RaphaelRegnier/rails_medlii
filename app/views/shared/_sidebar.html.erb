@@ -14,6 +14,29 @@
     <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', id: 'logout', method: :delete %>
   </div>
 </div>
+
+
+<% content_for :after_js do %>
+
+<script>
+  current_url = window.location.pathname
+
+  if(current_url === "<%= users_path %>"){
+    $('#search').addClass('active');
+  }
+  if(current_url === "<%= user_path(current_user) %>"){
+    $('#mymedlii').addClass('active');
+  }
+  if(current_url === "<%= edit_user_registration_path(current_user)%>"){
+    $('#edit').addClass('active');
+  }
+
+// NEED MESSAGES PATH ALSO
+// if current_url.includes("<%= users_path %>"){
+//   $('#search').addClass('active');
+// }
+
+</script>
+
+<% end  %>
 <% end %>
-
-
