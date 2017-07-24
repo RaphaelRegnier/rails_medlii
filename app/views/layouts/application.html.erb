@@ -23,7 +23,30 @@
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
     <%= javascript_include_tag "application" %>
+   <script>
+current_url = window.location.pathname
+
+if(current_url === "<%= users_path %>"){
+  $('#search').addClass('active');
+}
+if(current_url === "<%= user_path(current_user) %>"){
+  $('#mymedlii').addClass('active');
+}
+if(current_url === "<%= edit_user_registration_path(current_user)%>"){
+  $('#edit').addClass('active');
+}
+// NEED MESSAGES PATH ALSO
+// if current_url.includes("<%= users_path %>"){
+//   $('#search').addClass('active');
+// }
+
+</script>
+
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
+
+
+
   </body>
 </html>
+
