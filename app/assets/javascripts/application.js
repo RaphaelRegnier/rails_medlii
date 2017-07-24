@@ -23,10 +23,15 @@ $(document).ready(function() {
     $('#toggle_for_sidebar').toggleClass('dark-filter');
   });
   $('.link-sidebar').click(function(){
-    $('.link-sidebar').removeClass('active')
+    $('.link-sidebar').removeClass('active');
     $(this).addClass('active');
   });
+//   if (window.location.pathname.includes('/users')) {
+//   $('#search').addClass('active');
+// }
 
   $.material.init();
 });
+
+
 
