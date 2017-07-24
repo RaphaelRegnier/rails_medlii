@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index
     if params[:instrument_id]
       @users  =  Instrument.find(params[:instrument_id]).users
+      @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
     elsif
       @users = User.all
     end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :description, :photo, :instrument_id, :first_name, :last_name, :age, :location)
+    params.require(:user).permit(:name, :description, :photo, :instrument_id)
   end
 
   def set_user

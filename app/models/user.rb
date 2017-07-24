@@ -38,8 +38,4 @@ class User < ApplicationRecord
 
     return user
   end
-
-  def self.search(search)
-    where("instruments_id ILIKE ?", '{#search}')
-  end
 end
