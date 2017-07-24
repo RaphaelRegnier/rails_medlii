@@ -2,12 +2,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  def configure_permitted_parameters
-    # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  before_filter :configure_devise_permitted_parameters, if: :devise_controller?
 
-    # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
+  protected
+
+  def configure_devise_permitted_parameters
+    permitted_params = [:email, :password, :password_confirmation, :first_name, :last_name, :birth_date, :age, :location, :photo, :description]
+
+    if params[:action] == 'update'
+      devise_parameter_sanitizer.permit(:account_update) {
+        |u| u.permit(permitted_params << :current_password)
+      }
+    elsif params[:action] == 'create'
+      devise_parameter_sanitizer.permit(:sign_up) {
+        |u| u.permit(permitted_params)
+      }
+    end
   end
+
 
 end

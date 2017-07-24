@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container margin-top">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="form-login margin padded">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2>Edit Profile<%= resource_name.to_s.humanize %></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: user_path(current_user), html: { method: :get }) do |f| %>
         <%= f.error_notification %>
@@ -10,14 +10,8 @@
         <div class="form-inputs">
           <%= f.input :first_name %>
           <%= f.input :last_name %>
-          <%= f.input :age %>
-          <%= f.fields_for :instruments do |instrument| %>
-          <%= instrument.text_field :name %>
-          <%= instrument.text_field :description %>
-          <% end %>
-          <%= f.fields_for :played_instruments do |played_instrument| %>
-          <%= played_instrument.text_field :level %>
-          <% end %>
+          <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year, input_html: { class: 'datepicker'} %>
+          <%= f.input :location, as: :string, label: 'Address', placeholder: "5333 Casgrain Ave" %>
           <%= f.input :description, hint: "Tell us about your instruments!" %>
           <%= f.input :email, required: true, autofocus: true %>
 
@@ -34,6 +28,10 @@
         <div class="form-actions btn-primary">
           <%= f.button :submit, "Update" %>
         </div>
+      <% end %>
+
+      <%= link_to new_played_instrument_path do %>
+        <h3>Add Instruments</h3>
       <% end %>
 
       <h3>Cancel my account</h3>
