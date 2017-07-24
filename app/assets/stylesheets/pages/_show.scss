@@ -1,9 +1,10 @@
-
-.container-medlii{
-  background-size: contain;
-  width: 100%;
-  height: auto;
+.background{
   background-repeat: repeat;
+  background-size: contain;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  top: 0px;
 }
 
 .flexbox-picture{
@@ -17,10 +18,9 @@
 }
 
 .profile-page{
-  position: relative;
-  height:auto;
+  position: absolute;
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 .user-show{
@@ -56,11 +56,58 @@
   top: 105px;
 }
 
+.link-message{
+  border: 1px solid $blue;
+  padding: 6px 118px;
+  color: $blue;
+  background-color: #F7F7F7;
+  &:focus{
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
 .message{
-border: 1px solid $blue;
-padding: 6px 100px;
-position: absolute;
-bottom: 0px;
-color: $blue;
-background-color: #F7F7F7;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+}
+
+.shadow{
+ box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-instruments{
+  position: relative;
+  top: 400px;
+  width: 100%;
+  height: 300px;
+}
+
+.flexbox-icon{
+  display: flex;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  justify-content: center;
+  align-items:center;
+  height: 100px;
+}
+
+#icon-piano{
+  width: 50px;
+}
+
+.for-profile{
+  top: 105px;
+  color: white;
+}
+
+.instruments-container{
+  display: flex;
+  justify-content: center;
 }

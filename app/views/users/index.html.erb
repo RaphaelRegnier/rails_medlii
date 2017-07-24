@@ -1,3 +1,4 @@
+  <div class="white-background" style="background-image: url('<%= image_path "white_background.png" %>');"></div>
     <div class="container margin-top">
       <div class="row">
 
@@ -25,6 +26,7 @@
             <div class="user-info">
               <%= user.first_name.upcase %> <%= user.last_name.upcase %>
             </div>
+             <div class='instruments-container'>
             <div class="user-instruments">
               <%  user.played_instruments.first(3).each do |played_instrument| %>
                 <div class="instrument-level">
@@ -39,6 +41,7 @@
                   </div>
                 </div>
               <% end %>
+            </div>
             </div>
           </div>
         <%= link_to '', user_path(user), class: "card-link"%>
