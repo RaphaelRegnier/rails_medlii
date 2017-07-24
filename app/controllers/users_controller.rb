@@ -4,36 +4,37 @@ class UsersController < ApplicationController
   def show
     birthday = @user.birth_date
     now = Date.today
-    @user_age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
-  end
-
-  def index
-    if params[:instrument_id]
-      @users  =  Instrument.find(params[:instrument_id]).users
-    elsif
-      @users = User.all
+    unless @user.birth_date.blank? do
+        @user_age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+      end
     end
   end
 
-  def edit
-  end
 
-  def update
+def index
+  if params[:instrument_id]
+    @users  =  Instrument.find(params[:instrument_id]).users
+  elsif
+    @users = User.all
   end
+end
 
-  def destroy
-  end
+def edit
+end
 
-  private
+def update
+end
 
-  def user_params
-    params.require(:user).permit(:name, :description, :photo, :instrument_id)
-  end
+def destroy
+end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+private
 
-  def age(birthday)
-  end
+def user_params
+  params.require(:user).permit(:name, :description, :photo, :instrument_id)
+end
+
+def set_user
+  @user = User.find(params[:id])
+end
 end
