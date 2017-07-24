@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :add_instruments, :edit, :destroy]
+  before_action :set_user, only: [:show, :edit, :add_instruments, :destroy]
 
   def show
     birthday = @user.birth_date

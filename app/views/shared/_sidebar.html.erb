@@ -24,9 +24,16 @@
   if(current_url === "<%= users_path %>"){
     $('#search').addClass('active');
   }
-  if(current_url === "<%= user_path(current_user) %>"){
+
+<% if @user %>
+  if(current_url === "<%= user_path(@user) %>" && <%= @user.id != current_user.id %>){
+  $('#search').addClass('active');
+  }
+
+  if(current_url === "<%= user_path(current_user) %>" && <%= @user.id == current_user.id %>){
     $('#mymedlii').addClass('active');
   }
+  <% end %>
   if(current_url === "<%= edit_user_registration_path(current_user)%>"){
     $('#edit').addClass('active');
   }
