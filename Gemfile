@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'nokogiri'
+gem 'filterrific'
 
 
 gem 'cloudinary'

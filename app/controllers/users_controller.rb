@@ -10,11 +10,13 @@ class UsersController < ApplicationController
   end
 
   def index
-#    if params[:instrument_id]
-#     @users  =  Instrument.find(params[:instrument_id]).users
-#   elsif
-#     @users = User.all
-#   end
+ if params[:instrument_id]
+      @users  =  Instrument.find(params[:instrument_id]).users
+      @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+    elsif
+      @users = User.all
+    end
+    
     if current_user.birth_date.blank? || current_user.location.blank?
       flash[:notice] = "Please fill the birth date and address"
       redirect_to edit_user_path(current_user)
@@ -24,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
 
@@ -46,4 +47,5 @@ private
 def set_user
   @user = User.find(params[:id])
 end
+
 
