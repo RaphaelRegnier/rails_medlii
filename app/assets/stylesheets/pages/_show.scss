@@ -132,3 +132,17 @@
     text-decoration: none;
   }
 }
+
+#age-show{
+position: absolute;
+font-size:17px;
+font-style: italic;
+bottom: 0px;
+right: -30px;
+z-index: 1;
+color: $blue;
+}
+
+#picture{
+  position: relative;
+}

@@ -1,34 +1,40 @@
 <div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
 <%= link_to :back, id:'back-arrow' do %>
-   <i class="fa fa-angle-left" aria-hidden="true"></i>
-    <% end %>
-  <div class="profile-page margin-top">
-    <div class="flexbox-picture">
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+<% end %>
+<div class="profile-page margin-top">
+  <div class="flexbox-picture">
+  <div id="picture">
       <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
       <%= image_tag avatar_url, class: 'avatar-large'%>
-      <% if @user.id != current_user.id %>
-      <% end %>
+      <div id="age-show"> <%= @user.age %></div>
     </div>
+  </div>
 
-    <div class="user-show">
-      <div class="user-name-show">
-        <%= @user.first_name.upcase %> <%= @user.last_name.upcase %>
-      </div>
-      <div class="user-description">
-        <%= @user.description %>
-      </div>
-      <div class="message">
-        <%= link_to "MESSAGE", '', class: "link-message", id: 'link-message' %>
-      </div>
+
+
+  <div class="user-show">
+    <div class="user-name-show">
+      <%= @user.first_name.upcase %> <%= @user.last_name.upcase %>
     </div>
+    <div class="user-description">
+      <%= @user.description %>
+    </div>
+    <% if @user.id != current_user.id %>
 
-    <div class="profile-instruments">
-      <div class="flexbox-icon">
-        <%= image_tag 'piano-keys-part', id: 'icon-piano' %>
-      </div>
-      <div class='instruments-container'>
+    <div class="message">
+      <%= link_to "MESSAGE", '', class: "link-message", id: 'link-message' %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="profile-instruments">
+    <div class="flexbox-icon">
+      <%= image_tag 'piano-keys-part', id: 'icon-piano' %>
+    </div>
+    <div class='instruments-container'>
       <div class="user-instruments for-profile">
-      <%  @user.played_instruments.each do |played_instrument| %>
+        <%  @user.played_instruments.each do |played_instrument| %>
         <div class="instrument-level">
           <span><%= truncate(Instrument.find(played_instrument.instrument_id).name, length: 20) %></span>
           <div class ="circles_level">
@@ -42,8 +48,8 @@
         </div>
         <% end %>
       </div>
-      </div>
     </div>
-
-
   </div>
+
+
+</div>

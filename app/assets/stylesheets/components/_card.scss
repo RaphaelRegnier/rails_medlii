@@ -65,7 +65,7 @@ box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0);}
 
 #age{
  font-style: italic;
- color: #1d4467;
+ color: $blue;
  position: absolute;
  font-size: 17px;
  z-index: 1;
@@ -79,7 +79,7 @@ box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0);}
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
   background: black;
   opacity: 0;
 }
