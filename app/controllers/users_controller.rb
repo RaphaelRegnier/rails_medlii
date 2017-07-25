@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
+
   before_action :set_user, only: [:show, :edit, :add_instruments, :destroy]
-  before_action :age_counting, only: [:show]
+
 
   def show
   end
@@ -10,15 +11,31 @@ class UsersController < ApplicationController
     if current_user.birth_date.blank? || current_user.location.blank?
       flash[:notice] = "Please fill the birth date and address"
       redirect_to edit_user_path(current_user)
-    elsif params[:instrument_id]
-      @users  =  Instrument.find(params[:instrument_id]).users
-      @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
-    else
-      @users = User.all
-      # birthday = @user.birth_date
-      # now = Date.today
-      # @user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+    elsif
+
+      if params[:instrument_id]
+        played_instruments_params = { instrument_id: params[:instrument_id] }
+
+        unless params[:level].empty?
+          played_instruments_params[:level] = params[:level]
+        end
+
+        @users  =  User.joins(:played_instruments).where(played_instruments: played_instruments_params)
+
+        unless params[:min_age].empty? && params[:max_age].empty?
+          @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+        end
+      else
+        @users = User.all
+      end
     end
+
+    #   if current_user.birth_date.blank? || current_user.location.blank?
+    #     flash[:notice] = "Please fill the birth date and address"
+    #     redirect_to edit_user_path(current_user)
+    #   else
+    #     @users = User.all
+    #   end
   end
 
   def edit
@@ -56,17 +73,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :location, :description, :photo)
   end
 
-
   def set_user
     @user = User.find(params[:id])
   end
 
-  def age_counting
-    birthday = current_user.birth_date
-    now = Date.today
-    current_user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
-  end
-
-
 end
-

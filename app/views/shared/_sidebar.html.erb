@@ -1,10 +1,9 @@
 <% if user_signed_in? %>
-<div class="sidebar">
-
-  <div class="sidebar-decoration" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
-    <div class="sidebar-people" style=" background-image: url('<%= image_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
-    <div id="cross-sidebar"> <i class="material-icons">clear</i></div>
-  </div>
+  <div class="sidebar">
+    <div class="sidebar-decoration" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
+      <div class="sidebar-people" style=" background-image: url('<%= asset_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
+      <div id="cross-sidebar"> <i class="material-icons">clear</i></div>
+    </div>
 
   <div class="links-sidebar">
     <%= link_to 'MESSAGES', users_path, class: 'link-sidebar', id: 'messages' %>
@@ -34,7 +33,7 @@
     $('#mymedlii').addClass('active');
   }
   <% end %>
-  if(current_url === "<%= edit_user_registration_path(current_user)%>"){
+  if(current_url === "<%= edit_user_registration_path%>"){
     $('#edit').addClass('active');
   }
 
@@ -47,3 +46,4 @@
 
 <% end  %>
 <% end %>
+

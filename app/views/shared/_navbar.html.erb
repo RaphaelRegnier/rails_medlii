@@ -1,15 +1,11 @@
 <% if user_signed_in? %>
-<div class="navbar-medlii">
-
-  <div class="sidebar-btn">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="navbar-medlii">
+    <div class="sidebar-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-title">medlii.</div>
+    <div class="navbar-search-logo" style=" background-image: url('<%= asset_path "medlii_blue_logo.png" %>');"> </div>
   </div>
-
-  <div class="navbar-title">medlii.</div>
-
-  <div class="navbar-search-logo" style=" background-image: url('<%= image_path "medlii_blue_logo.png" %>');"> </div>
-
-</div>
 <% end %>

@@ -1,8 +1,10 @@
-<div class="container profile margin-top" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
+<div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
+<div class="container profile margin-top">
   <div class="row margin-left">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <h2 class="margin-top">UPDATE</h2>
       <h2 class="distance-bottom">PROFILE</h2>
+
       <%= simple_form_for @user, method: :patch do |f| %>
       <div class="form-inputs">
         <%= f.input :first_name, placeholder: "first name", label: false, input_html: { class: 'input'} %>
@@ -15,6 +17,7 @@
       <div class="form-actions">
         <%= f.button :submit, "UPDATE", class: 'btn btn-primary input' %>
       </div>
+
       <% end %>
     </div>
   </div>
