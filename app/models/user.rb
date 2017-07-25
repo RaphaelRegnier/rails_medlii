@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
 
-  has_many :spotifies
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
 
