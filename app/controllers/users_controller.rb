@@ -9,8 +9,17 @@ class UsersController < ApplicationController
 
   def index
     if params[:instrument_id]
-      @users  =  Instrument.find(params[:instrument_id]).users
-      @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+      played_instruments_params = { instrument_id: params[:instrument_id] }
+
+      unless params[:level].empty?
+        played_instruments_params[:level] = params[:level]
+      end
+
+      @users  =  User.joins(:played_instruments).where(played_instruments: played_instruments_params)
+
+      unless params[:min_age].empty? && params[:max_age].empty?
+        @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+      end
     elsif
       @users = User.all
     end
@@ -28,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :description, :photo, :instrument_id, :age, :location)
+    params.require(:user).permit(:first_name, :last_name, :description, :photo, :instrument_id, :age, :location)
   end
 
   def set_user

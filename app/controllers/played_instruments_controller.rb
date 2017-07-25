@@ -10,7 +10,7 @@ class PlayedInstrumentsController < ApplicationController
     @played_instrument.instrument = Instrument.find(params[:played_instrument][:instrument])
     @played_instrument.user = current_user
     if @played_instrument.save
-     respond_to do |format|
+      respond_to do |format|
         format.html { redirect_to add_instruments_path }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
@@ -26,7 +26,7 @@ class PlayedInstrumentsController < ApplicationController
     @played_instrument = PlayedInstrument.find(params[:id])
 
     if @played_instrument.destroy
-     respond_to do |format|
+      respond_to do |format|
         format.html { redirect_to add_instruments_path }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
@@ -36,6 +36,6 @@ class PlayedInstrumentsController < ApplicationController
   private
 
   def played_instrument_params
-    params.require(:played_instrument).permit(:level)
+    params.require(:played_instrument).permit(:level, :user_id, :instrument_id)
   end
 end
