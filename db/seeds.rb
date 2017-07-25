@@ -13,10 +13,10 @@ puts "SEEDING INSTRUMENTS..."
 instruments = ['electric guitar', 'keyboard', 'piano', 'drums', 'saxophone', 'bass guitar', 'acoustic guitar', 'classical guitar', 'violin', 'flute', 'trumpet', 'clarinet', 'cello', 'voice', 'synthetiser', 'ukulele', 'harp', 'xylophone', 'harmonica', 'viola', 'bass', 'bassoon', 'piccolo']
 
 
-html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
+# html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
 
-  instruments << element.text.match(/\A[a-zA-Z\s\'\"\’]*/)[0]
-end
+#   instruments << element.text.match(/\A[a-zA-Z\s\'\"\’]*/)[0]
+# end
 
 instruments.each do |instrument|
   Instrument.create(name: instrument.capitalize)
