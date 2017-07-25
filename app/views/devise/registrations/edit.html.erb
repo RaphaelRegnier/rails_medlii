@@ -1,45 +1,33 @@
-<div class="container margin-top">
-  <div class="row">
+<div class="container edit-profile margin-top" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
+  <div class="row margin-left">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="form-login margin padded">
-      <h2>Edit Profile<%= resource_name.to_s.humanize %></h2>
-
-      <%= simple_form_for(resource, as: resource_name, url: user_path(current_user), html: { method: :get }) do |f| %>
+      <h2 class="margin-top">EDIT</h2>
+      <h2 class="distance-bottom">PROFILE</h2>
+      <%= simple_form_for(resource, as: resource_name, url: user_path(current_user), html: { method: :patch }) do |f| %>
         <%= f.error_notification %>
-
         <div class="form-inputs">
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :birth_date, start_year: Date.today.year - 110, end_year: Date.today.year, input_html: { class: 'datepicker'} %>
-          <%= f.input :location, as: :string, label: 'Address', placeholder: "5333 Casgrain Ave" %>
-          <%= f.input :description, hint: "Tell us about your instruments!" %>
-          <%= f.input :email, required: true, autofocus: true %>
-
+          <%= f.input :first_name, placeholder: "first name", label: false, input_html: { class: 'input'} %>
+          <%= f.input :last_name, placeholder: "last name", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today, input_html: { class: 'datepicker'}, required: true, placeholder: "birthday", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :location, as: :string, required: true, placeholder: "address", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :description, as: :text, placeholder: "Tell us about yourself", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :email, required: true, autofocus: true, placeholder: "email", label: false, input_html: { class: 'input'}  %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
-
-          <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-          <%= f.input :password_confirmation, required: false %>
-          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-          <%= f.input :photo, as: :attachinary %>
+          <%= f.input :password, autocomplete: "off", required: false, placeholder: "password", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :password_confirmation, required: false, placeholder: "confirm password", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :current_password, required: true, placeholder: "current password", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :photo, as: :attachinary, input_html: { class: 'input'} %>
+          <%= f.hint "<i class='fa fa-pencil white'></i>  #{link_to 'edit instrument', new_played_instrument_path, class: 'input'}".html_safe, class: 'link-position' %>
         </div>
-
-        <div class="form-actions btn-primary">
-          <%= f.button :submit, "Update" %>
+        <div class="form-actions">
+          <%= f.button :submit, "EDIT", class: 'btn btn-primary input' %>
         </div>
       <% end %>
-
-      <%= link_to new_played_instrument_path do %>
-        <h3>Add Instruments</h3>
-      <% end %>
-
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
-      </div>
+      <h3>CANCEL MY ACCOUNT</h3>
+      <p><%= link_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'input btn btn-danger' %></p>
+      <%= link_to "Back", :back, class: 'white' %>
     </div>
   </div>
 </div>

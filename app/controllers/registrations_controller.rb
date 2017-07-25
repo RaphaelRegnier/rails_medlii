@@ -5,9 +5,13 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.create(sign_up_params)
   end
 
+  def edit
+  end
+
   def update
-    @user.update(account_update_params)
-    redirect_to users_path
+    @user = User.find(params[:id])
+    @user = User.update(account_update_params)
+    redirect_to :back
   end
 
   private

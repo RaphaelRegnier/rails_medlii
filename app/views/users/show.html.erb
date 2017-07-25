@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="wrapper" style="background-image: url('<%= image_path "blue-banner.jpg" %>');">
   <div class="container text-center card-profile">
     <div class="row">
@@ -57,3 +58,53 @@
                   <%= link_to "Home", users_path %>
                 </div>
               </div>
+=======
+<div class="background" style="background-image: url('<%= asset_path "blue_background.jpg" %>');"> </div>
+<%= link_to :back, id:'back-arrow' do %>
+  <i class="fa fa-angle-left" aria-hidden="true"></i>
+<% end %>
+<div class="profile-page margin-top">
+  <div class="flexbox-picture">
+    <div id="picture">
+      <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
+      <%= image_tag avatar_url, class: 'avatar-large'%>
+      <div id="age-show"> <%= @user.age %></div>
+    </div>
+  </div>
+  <div class="user-show">
+    <div class="user-name-show">
+      <%= @user.first_name.upcase %> <%= @user.last_name.upcase %>
+    </div>
+    <div class="user-description">
+      <%= @user.description %>
+    </div>
+    <% if @user.id != current_user.id %>
+      <div class="message">
+        <%= link_to "MESSAGE", '', class: "link-message", id: 'link-message' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="profile-instruments">
+    <div class="flexbox-icon">
+      <%= image_tag 'piano-keys-part', id: 'icon-piano' %>
+    </div>
+    <div class='instruments-container'>
+      <div class="user-instruments for-profile">
+        <%  @user.played_instruments.each do |played_instrument| %>
+          <div class="instrument-level">
+            <span><%= truncate(Instrument.find(played_instrument.instrument_id).name, length: 20) %></span>
+            <div class ="circles_level">
+              <% played_instrument.level.times do %>
+                <div class="dot-filled dot-filled-white"></div>
+              <% end %>
+              <% (5 - played_instrument.level).times do %>
+                <div class="dot dot-white"></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> master
