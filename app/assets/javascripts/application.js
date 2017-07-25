@@ -10,6 +10,7 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require bootstrap-material-design
+//= require bootstrap-slider
 //= require_tree .
 
 $(document).ready(function() {
