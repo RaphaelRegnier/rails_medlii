@@ -4,39 +4,46 @@
       <div class="sidebar-people" style=" background-image: url('<%= asset_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
       <div id="cross-sidebar"> <i class="material-icons">clear</i></div>
     </div>
-    <div class="links-sidebar">
-      <%= link_to 'MESSAGES', users_path, class: 'link-sidebar', id: 'messages' %>
-      <%= link_to 'SEARCH', users_path, class: 'link-sidebar', id: 'search' %>
-      <%= link_to 'MY MEDLII', user_path(current_user), class: 'link-sidebar', id: 'mymedlii' %>
-      <%= link_to 'EDIT PROFILE', edit_user_registration_path(current_user), class: 'link-sidebar', id: 'edit' %>
-      <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', id: 'logout', method: :delete %>
-    </div>
+
+  <div class="links-sidebar">
+    <%= link_to 'MESSAGES', users_path, class: 'link-sidebar', id: 'messages' %>
+    <%= link_to 'SEARCH', users_path, class: 'link-sidebar', id: 'search' %>
+    <%= link_to 'MY MEDLII', user_path(current_user), class: 'link-sidebar', id: 'mymedlii' %>
+    <%= link_to 'EDIT PROFILE', edit_user_registration_path, class: 'link-sidebar', id: 'edit' %>
+    <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', id: 'logout', method: :delete %>
   </div>
-  <% content_for :after_js do %>
-    <script>
-      current_url = window.location.pathname
-      
-      if(current_url === "<%= users_path %>"){
-        $('#search').addClass('active');
-      }
-      
-      <% if @user %>
-      if(current_url === "<%= user_path(@user) %>" && <%= @user.id != current_user.id %>){
-      $('#search').addClass('active');
-      }
-      
-      if(current_url === "<%= user_path(current_user) %>" && <%= @user.id == current_user.id %>){
-        $('#mymedlii').addClass('active');
-      }
-      <% end %>
-      if(current_url === "<%= edit_user_registration_path(current_user)%>"){
-        $('#edit').addClass('active');
-      }
-      
-      // NEED MESSAGES PATH ALSO
-      // if current_url.includes("<%= users_path %>"){
-      //   $('#search').addClass('active');
-      // }
-    </script>
-  <% end  %>
+</div>
+
+
+<% content_for :after_js do %>
+
+<script>
+  current_url = window.location.pathname
+
+  if(current_url === "<%= users_path %>"){
+    $('#search').addClass('active');
+  }
+
+<% if @user %>
+  if(current_url === "<%= user_path(@user) %>" && <%= @user.id != current_user.id %>){
+  $('#search').addClass('active');
+  }
+
+  if(current_url === "<%= user_path(current_user) %>" && <%= @user.id == current_user.id %>){
+    $('#mymedlii').addClass('active');
+  }
+  <% end %>
+  if(current_url === "<%= edit_user_registration_path%>"){
+    $('#edit').addClass('active');
+  }
+
+// NEED MESSAGES PATH ALSO
+// if current_url.includes("<%= users_path %>"){
+//   $('#search').addClass('active');
+// }
+
+</script>
+
+<% end  %>
 <% end %>
+

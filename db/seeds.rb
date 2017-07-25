@@ -29,7 +29,11 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
 
 
 10.times do
-  user = User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, age: Faker::Number.between(18, 40),  photo_url: profiles_pic[i])
+  user = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 65), photo_url: profiles_pic[i])
+    birthday = user.birth_date
+    now = Date.today
+    user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  user.save
   i+=1
   rand(1..5).times do
     PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: user)
@@ -37,7 +41,8 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
 end
 
 
-admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', age: "23", location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
+admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
+
 3.times do
   PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: User.find_by(first_name: "Pika"))
 end
