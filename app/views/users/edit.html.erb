@@ -10,15 +10,14 @@
         <%= f.input :first_name, placeholder: "first name", label: false, input_html: { class: 'input'} %>
         <%= f.input :last_name, placeholder: "last name", label: false, input_html: { class: 'input'} %>
         <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today.year, input_html: { class: 'datepicker input'} , required: true, placeholder: "birthday", label: false %>
-        <%= f.input :location, as: :string, placeholder: "address", required: true, placeholder: "address", label: false, input_html: { class: 'input'} %>
+        <%= f.input :location, as: :string, placeholder: "address", required: true, placeholder: "address", label: false, input_html: { class: 'input'}, id: 'user_location' %>
         <%= f.input :song, placeholder: "spotify url", label: false, input_html: { class: 'input'} %>
         <%= f.input :description, as: :text, placeholder: "Tell us about yourself", label: false, input_html: { class: 'input'} %>
-        <%= f.hint "<i class='fa fa-plus white'></i> #{link_to 'add instruments', new_played_instrument_path, class: 'input'}".html_safe, class: 'link-position' %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "UPDATE", class: 'btn btn-primary input' %>
+        <%= f.button :submit, "NEXT", class: 'btn btn-primary input' %>
       </div>
-      
+
       <% end %>
     </div>
   </div>

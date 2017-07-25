@@ -20,6 +20,7 @@
           <div class="card-content">
             <div class="user-info">
               <%= user.first_name.upcase %> <%= user.last_name.upcase %>
+              <%= (Geocoder::Calculations.distance_between(current_user.location, user.location, {units: :km})).round %>km away
             </div>
             <div class='instruments-container'>
               <div class="user-instruments">

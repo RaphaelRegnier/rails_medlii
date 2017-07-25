@@ -9,9 +9,8 @@
         <div class="form-inputs">
           <%= f.input :first_name, placeholder: "first name", label: false, input_html: { class: 'input'} %>
           <%= f.input :last_name, placeholder: "last name", label: false, input_html: { class: 'input'}  %>
-          <%# f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today, input_html: { class: 'datepicker input'}, required: true, placeholder: "birthday", label: false  %>
           <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today.year, input_html: { class: 'datepicker input'} , required: true, placeholder: "birthday", label: false %>
-          <%= f.input :location, as: :string, required: true, placeholder: "address", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :location, as: :string, required: true, placeholder: "address", label: false, input_html: { class: 'input'}, id: 'user_location'  %>
           <%= f.input :song, placeholder: "spotify url", label: false, input_html: { class: 'input'} %>
 
           <%= f.input :description, as: :text, placeholder: "Tell us about yourself", label: false, input_html: { class: 'input'}  %>
@@ -19,9 +18,6 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
-          <%= f.input :password, autocomplete: "off", required: false, placeholder: "password", label: false, input_html: { class: 'input'}  %>
-          <%= f.input :password_confirmation, required: false, placeholder: "confirm password", label: false, input_html: { class: 'input'}  %>
-          <%= f.input :current_password, required: true, placeholder: "current password", label: false, input_html: { class: 'input'}  %>
           <%= f.input :photo, as: :attachinary, input_html: { class: 'input'} %>
           <%= f.hint "<i class='fa fa-pencil white'></i>  #{link_to 'edit instrument', new_played_instrument_path, class: 'input'}".html_safe, class: 'link-position' %>
         </div>
