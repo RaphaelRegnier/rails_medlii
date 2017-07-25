@@ -3,7 +3,7 @@
       <div class="row">
        <div class ="col-xs-4">
           <%= render 'form_search' %>
-        </div>  
+        </div>
 
        <% @users.each do |user| %>
        <div class="col-xs-12">
@@ -38,7 +38,6 @@
                   </div>
                 </div>
               <% end %>
-            </div>
             </div>
           </div>
           <%= link_to '', user_path(user), class: "card-link"%>
