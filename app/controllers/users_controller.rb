@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :add_instruments, :edit, :destroy]
+
+  before_action :set_user, only: [:show, :edit, :add_instruments, :update, :destroy]
 
   def show
     birthday = @user.birth_date
@@ -23,27 +24,36 @@ class UsersController < ApplicationController
     elsif
       @users = User.all
     end
+
+    if current_user.birth_date.blank? || current_user.location.blank?
+      flash[:notice] = "Please fill the birth date and address"
+      redirect_to edit_user_path(current_user)
+    else
+      @users = User.all
+    end
   end
 
   def edit
   end
 
+
   def update
+    @user = current_user.update(user_params)
+    redirect_to users_path
   end
+
 
   def destroy
   end
 
   private
-
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :description, :photo, :instrument_id, :age, :location)
+    params.require(:user).permit(:first_name, :last_name, :birth_date, :location, :description, :photo, :age)
   end
+
 
   def set_user
     @user = User.find(params[:id])
   end
 
-  def age(birthday)
-  end
 end

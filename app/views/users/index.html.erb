@@ -1,3 +1,4 @@
+<div class="white-background" style="background-image: url('<%= asset_path "white_background.png" %>');"></div>
 <div class="container margin-top">
   <div class="row">
     <div class ="col-xs-12">
@@ -5,9 +6,13 @@
     </div>
     <% @users.each do |user| %>
       <div class="col-xs-12">
-        <div class="card-medlii" style=" background-image: url('<%= image_path "blue_background.jpg" %>');">
+        <div class="card-medlii" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
           <div class="flexbox-profile-picture">
-            <% avatar_url = user.facebook_picture_url || cl_image_path(user.photo.path) || "http://placehold.it/30x30" %>
+            <% if user.photo.nil? %>
+              <% avatar_url = user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <% else %>
+              <% avatar_url = user.facebook_picture_url || cl_image_path(user.photo.path) || "http://placehold.it/30x30" %>
+            <% end %>
             <%= image_tag avatar_url, class: 'avatar-large' %>
           </div>
           <!-- USER AGE IN HERE  -->
@@ -16,20 +21,22 @@
             <div class="user-info">
               <%= user.first_name.upcase %> <%= user.last_name.upcase %>
             </div>
-            <div class="user-instruments">
-              <%  user.played_instruments.first(3).each do |played_instrument| %>
-                <div class="instrument-level">
-                  <%= truncate(Instrument.find(played_instrument.instrument_id).name, length: 20) %>
-                  <div class ="circles_level">
-                    <% played_instrument.level.times do %>
-                      <div class="dot-filled dot-filled-blue"></div>
-                    <% end %>
-                    <% (5 - played_instrument.level).times do %>
-                      <div class="dot dot-blue"></div>
-                    <% end %>
+            <div class='instruments-container'>
+              <div class="user-instruments">
+                <%  user.played_instruments.first(3).each do |played_instrument| %>
+                  <div class="instrument-level">
+                    <%= truncate(Instrument.find(played_instrument.instrument_id).name, length: 20) %>
+                    <div class ="circles_level">
+                      <% played_instrument.level.times do %>
+                        <div class="dot-filled dot-filled-blue"></div>
+                      <% end %>
+                      <% (5 - played_instrument.level).times do %>
+                        <div class="dot dot-blue"></div>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
             <%= link_to '', user_path(user), class: "card-link"%>
           </div>
