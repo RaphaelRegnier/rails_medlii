@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :add_instruments, :update, :destroy]
 
-
   def show
     birthday = @user.birth_date
     now = Date.today
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def index
- if params[:instrument_id]
+    if params[:instrument_id]
       @users  =  Instrument.find(params[:instrument_id]).users
       @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
     elsif
@@ -38,14 +37,14 @@ class UsersController < ApplicationController
   def destroy
   end
 
-private
+  private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :birth_date, :location, :description, :photo, :age)
   end
 
 
-def set_user
-  @user = User.find(params[:id])
-end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end
