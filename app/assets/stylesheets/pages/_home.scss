@@ -6,10 +6,9 @@
   color: white;
   text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
+  background-size: cover;
   font-family: 'Comfortaa', cursive;
-  background-position-x: center;
+  background-position-x: -430px;
   position: relative;
 
 }
