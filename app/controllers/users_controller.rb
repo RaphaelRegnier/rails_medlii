@@ -29,13 +29,6 @@ class UsersController < ApplicationController
         @users = User.all
       end
     end
-
-    #   if current_user.birth_date.blank? || current_user.location.blank?
-    #     flash[:notice] = "Please fill the birth date and address"
-    #     redirect_to edit_user_path(current_user)
-    #   else
-    #     @users = User.all
-    #   end
   end
 
   def edit
