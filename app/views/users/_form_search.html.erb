@@ -1,4 +1,5 @@
 <%= form_tag users_path(), method: :get do %>
+
   <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]) %>
   <%= number_field_tag('min_age', value = nil, options = {},) %>
   <%= number_field_tag('max_age', value = nil, options = {},) %>
