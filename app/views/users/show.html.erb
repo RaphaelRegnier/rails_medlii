@@ -5,11 +5,11 @@
         <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: 'avatar-square-profile'%>
         <ul class = "list-unstyled list-inline ">
-          <li> 
+          <li>
             <p><%= @user.first_name.upcase%> <%=@user.last_name.first %>.
               <p> </li>
-              <li> 
-                <p> <%= @user.age %> 
+              <li>
+                <p> <%= @user.age %>
                   <p></li>
                   <li class = "chat-icon"><a href="/users"> <i class="fa fa-comments-o" aria-hidden="true"></i></a>
                   </ul>
@@ -21,7 +21,7 @@
             <div class="container text-center card-profile">
               <div class="row">
                 <div class="col-xs-12">
-                  <p> <%= @user.description %> 
+                  <p> <%= @user.description %>
                     <p>
                     </div>
                   </div>
@@ -42,6 +42,17 @@
                         </ul>
                       </div>
                     <% end %>
+                  </div>
+
+                  <div class="container text-center">
+                    <div class="row">
+                    <div class="col-xs-12">
+
+
+
+                            <iframe src="https://open.spotify.com/embed?uri=spotify:track:<%= @user.song.split('/')[-1] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+                          <!-- curl -X GET "https://api.spotify.com/v1/albums?ids=++++++++++++++++++++%3C%25+%40user.played_instruments.each+do+%7Cplayed_instrument%7C+%25%3E" -H "Accept: application/json" -->
+                    </div>
                   </div>
                   <%= link_to "Home", users_path %>
                 </div>
