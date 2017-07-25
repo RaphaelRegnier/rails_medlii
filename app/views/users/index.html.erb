@@ -54,6 +54,11 @@
       noUiSlider.create(html5Slider, {
        start: [ 10, 30 ],
        connect: true,
+       margin: 1,
+       behaviour: 'tap-drag',
+       // direction: 'rtl',
+       step: 1,
+       // tooltips: [false, wNumb({ decimals: 1}), true],
        range: {
          'min': 10,
          'max': 80
