@@ -9,28 +9,35 @@ class UsersController < ApplicationController
   end
 
   def index
-    if params[:instrument_id]
-      played_instruments_params = { instrument_id: params[:instrument_id] }
-
-      unless params[:level].empty?
-        played_instruments_params[:level] = params[:level]
-      end
-
-      @users  =  User.joins(:played_instruments).where(played_instruments: played_instruments_params)
-
-      unless params[:min_age].empty? && params[:max_age].empty?
-        @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
-      end
-    elsif
-      @users = User.all
-    end
 
     if current_user.birth_date.blank? || current_user.location.blank?
       flash[:notice] = "Please fill the birth date and address"
       redirect_to edit_user_path(current_user)
-    else
-      @users = User.all
+    elsif
+
+      if params[:instrument_id]
+        played_instruments_params = { instrument_id: params[:instrument_id] }
+
+        unless params[:level].empty?
+          played_instruments_params[:level] = params[:level]
+        end
+
+        @users  =  User.joins(:played_instruments).where(played_instruments: played_instruments_params)
+
+        unless params[:min_age].empty? && params[:max_age].empty?
+          @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+        end
+      else
+        @users = User.all
+      end
     end
+
+    #   if current_user.birth_date.blank? || current_user.location.blank?
+    #     flash[:notice] = "Please fill the birth date and address"
+    #     redirect_to edit_user_path(current_user)
+    #   else
+    #     @users = User.all
+    #   end
   end
 
   def edit
