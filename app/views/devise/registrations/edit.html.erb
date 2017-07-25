@@ -12,6 +12,8 @@
           <%# f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today, input_html: { class: 'datepicker input'}, required: true, placeholder: "birthday", label: false  %>
           <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today.year, input_html: { class: 'datepicker input'} , required: true, placeholder: "birthday", label: false %>
           <%= f.input :location, as: :string, required: true, placeholder: "address", label: false, input_html: { class: 'input'}  %>
+          <%= f.input :song, placeholder: "spotify url", label: false, input_html: { class: 'input'} %>
+
           <%= f.input :description, as: :text, placeholder: "Tell us about yourself", label: false, input_html: { class: 'input'}  %>
           <%= f.input :email, required: true, autofocus: true, placeholder: "email", label: false, input_html: { class: 'input'}  %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

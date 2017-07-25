@@ -45,4 +45,20 @@
       </div>
     </div>
   </div>
+
+  <div class="profile-instruments">
+    <div class="flexbox-icon">
+      <%= image_tag 'piano-keys-part', id: 'icon-piano' %>
+    </div>
+    <div class='instruments-container'>
+      <div class="user-instruments for-profile">
+       <div class='container'>
+            <iframe src="https://open.spotify.com/embed?uri=spotify:track:<%= @user.song.split('/')[-1] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+         </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+

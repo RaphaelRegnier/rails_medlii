@@ -7,6 +7,10 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
+
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
+
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
   geocoded_by :location
