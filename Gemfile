@@ -19,8 +19,6 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'nokogiri'
 
-
-
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
@@ -32,6 +30,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'simple-form-datepicker'
 gem 'bootstrap-datepicker-rails'
+gem 'nouislider-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
