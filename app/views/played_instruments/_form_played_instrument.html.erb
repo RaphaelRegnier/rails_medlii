@@ -1,6 +1,6 @@
 <%= simple_form_for(played_instrument, remote: true) do |f| %>
 <div class="partial_form">
-  <%= f.input :instrument, label: "Instrument", collection: Instrument.all%>
+  <%= f.input :instrument, label: "Instrument",label_html: {id: 'instrument-input'},input_html: {id: 'white-color'}, collection: Instrument.all%>
 
   <div class="level">
     <h4>Level : </h4>

@@ -45,7 +45,7 @@ $platinum:          #ffffff;  // #E0E0E0
 
 .dot{
 background-color: transparent;
-    border: solid 3px $cadmium;
+    border: solid 3px $blue;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -53,8 +53,8 @@ background-color: transparent;
 }
 
 .dot-filled{
-  background-color: $cadmium;
-    border: solid 3px $cadmium;
+  background-color: $blue;
+    border: solid 3px $blue;
     width: 25px;
     height: 25px;
     border-radius: 50%;
