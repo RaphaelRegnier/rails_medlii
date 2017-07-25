@@ -10,7 +10,7 @@
     <%= link_to 'MESSAGES', users_path, class: 'link-sidebar', id: 'messages' %>
     <%= link_to 'SEARCH', users_path, class: 'link-sidebar', id: 'search' %>
     <%= link_to 'MY MEDLII', user_path(current_user), class: 'link-sidebar', id: 'mymedlii' %>
-    <%= link_to 'EDIT PROFILE', edit_user_registration_path(current_user), class: 'link-sidebar', id: 'edit' %>
+    <%= link_to 'EDIT PROFILE', edit_user_registration_path, class: 'link-sidebar', id: 'edit' %>
     <%= link_to 'LOG OUT', destroy_user_session_path, class: 'link-sidebar', id: 'logout', method: :delete %>
   </div>
 </div>
