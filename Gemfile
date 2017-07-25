@@ -30,7 +30,7 @@ gem "coffee-rails"
 gem "gmaps4rails"
 gem 'simple-form-datepicker'
 gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-slider-rails'
+gem 'nouislider-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

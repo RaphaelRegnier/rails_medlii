@@ -65,8 +65,6 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap-slider-rails (9.8.0)
-      railties (>= 3.2, < 6.0)
     builder (3.2.3)
     byebug (9.0.6)
     cloudinary (1.1.7)
@@ -141,6 +139,8 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    nouislider-rails (8.2.1)
+      railties (>= 3.1)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -262,7 +262,6 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-material-design
   bootstrap-sass
-  bootstrap-slider-rails
   cloudinary
   coffee-rails
   devise
@@ -276,6 +275,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   nokogiri
+  nouislider-rails
   omniauth-facebook
   pg
   pry-byebug
