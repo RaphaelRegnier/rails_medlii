@@ -1,4 +1,5 @@
-<div class="container edit-profile margin-top" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
+<div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
+<div class="container edit-profile margin-top">
   <div class="row margin-left">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <h2 class="margin-top">EDIT</h2>
@@ -8,7 +9,8 @@
         <div class="form-inputs">
           <%= f.input :first_name, placeholder: "first name", label: false, input_html: { class: 'input'} %>
           <%= f.input :last_name, placeholder: "last name", label: false, input_html: { class: 'input'}  %>
-          <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today, input_html: { class: 'datepicker'}, required: true, placeholder: "birthday", label: false, input_html: { class: 'input'}  %>
+          <%# f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today, input_html: { class: 'datepicker input'}, required: true, placeholder: "birthday", label: false  %>
+          <%= f.input :birth_date, as: :string, start_year: Date.today.year - 90, end_year: Date.today.year, input_html: { class: 'datepicker input'} , required: true, placeholder: "birthday", label: false %>
           <%= f.input :location, as: :string, required: true, placeholder: "address", label: false, input_html: { class: 'input'}  %>
           <%= f.input :song, placeholder: "spotify url", label: false, input_html: { class: 'input'} %>
 

@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_permitted_parameters, if: :devise_controller?
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   protected
 
   def configure_devise_permitted_parameters
@@ -19,6 +23,4 @@ class ApplicationController < ActionController::Base
       }
     end
   end
-
-
 end

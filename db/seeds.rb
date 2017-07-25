@@ -2,14 +2,16 @@ require "open-uri"
 puts "SEEDING..."
 PlayedInstrument.destroy_all
 User.destroy_all
+Instrument.destroy_all
 
 # COMMENT THESE LINES AFTER ONE SEED
-Instrument.destroy_all
-url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
-html_file = open(url)
-html_doc = Nokogiri::HTML(html_file)
+
+# url = 'https://www.imit.org.uk/pages/a-to-z-of-musical-instrument.html'
+# html_file = open(url)
+# html_doc = Nokogiri::HTML(html_file)
 puts "SEEDING INSTRUMENTS..."
-instruments = []
+instruments = ['electric guitar', 'keyboard', 'piano', 'drums', 'saxophone', 'bass guitar', 'acoustic guitar', 'classical guitar', 'violin', 'flute', 'trumpet', 'clarinet', 'cello', 'voice', 'synthetiser', 'ukulele', 'harp', 'xylophone', 'harmonica', 'viola', 'bass', 'bassoon', 'piccolo']
+
 
 html_doc.search('table > tbody > tr > td:nth-child(1)').each do |element|
 
@@ -29,7 +31,11 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
 
 
 10.times do
-  user = User.create(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, age: Faker::Number.between(18, 40),  photo_url: profiles_pic[i])
+  user = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 65), photo_url: profiles_pic[i])
+    birthday = user.birth_date
+    now = Date.today
+    user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  user.save
   i+=1
   rand(1..5).times do
     PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: user)
@@ -37,7 +43,8 @@ profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/
 end
 
 
-admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', age: "23", location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
+admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: 'Downtown, Montreal', photo_url: 'app/assets/images/pika.jpg')
+
 3.times do
   PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: User.find_by(first_name: "Pika"))
 end

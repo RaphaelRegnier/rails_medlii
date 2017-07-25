@@ -1,12 +1,8 @@
-.body_new_played_inst{
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-}
 
 .level{
   display: flex;
   justify-content: flex-start;
+  color:white;
   h4{font-size: 15px;
     font-weight: bold;
   }
@@ -18,7 +14,12 @@
 }
 
 .new_played{
-margin-top: 12vh;
+margin-top: 115px;
+margin-bottom: 60px
+}
+
+.top{
+  top: 50px !important;
 }
 
 #new_played_instrument{
@@ -28,6 +29,7 @@ margin-top: 12vh;
 .level_description{
   p{
     padding:0px;
+    color: white;
     margin: 5px 0px;
     font-size: 14px;
     font-weight: lighter;
@@ -43,8 +45,9 @@ margin-top: 12vh;
 
 .card_new_played{
   border: 1px lightgrey solid;
-  padding: 5px 12px;
-  margin-top: 2vh;
+  padding: 7px 12px;
+  margin-top: 20px;
+  background-color: white;
   height: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   position: relative;
@@ -110,7 +113,22 @@ margin-top: 12vh;
  display:flex;
  align-items:center;
  position: absolute;
+ color:white;
  right: 5vw;
  width: 165px;
  justify-content: space-around;
+}
+
+#instrument-input{
+  font-weight: bold !important;
+}
+
+#white-color{
+  color: white;
+  option{
+    color: black;
+     &:hover{
+      background-color: $blue;
+     }
+  }
 }
