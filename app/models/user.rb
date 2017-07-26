@@ -8,8 +8,9 @@ class User < ApplicationRecord
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
 
-  has_many :messages
-  has_many :conversations, foreign_key: :sender_id
+  has_many :conversations
+  has_many :sent_messages, :class_name => "Message", :foreign_key => "user_1_id"
+  has_many :received_messages, :class_name => "Message", :foreign_key => "user_2_id", through: :conversations
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
@@ -33,8 +34,10 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      user.birth_date = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
-      user.age = (Date.today - Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')) / 365
+      if auth.extra.raw_info.birthday
+        user.birth_date = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
+        user.age = (Date.today - Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')) / 365
+      end
       ## call the public birthday from the facebook and calculate to the age
       # When the Date calculated by strptime method, it will give us the result with the days.
       # Divide by 365 is to calculate the exact person's age.
@@ -45,4 +48,7 @@ class User < ApplicationRecord
     return user
   end
 
+  def image_url
+    facebook_picture_url || photo.path || "http://placehold.it/30x30"
+  end
 end
