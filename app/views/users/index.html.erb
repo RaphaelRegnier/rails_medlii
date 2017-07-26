@@ -2,12 +2,11 @@
 <div class="container margin-top">
   <div class="row">
 
-    <div class ="col-xs-12">
-      <div ><%= render 'form_search' %></div>
-      <div class="slider shor">
-        <div id='input-select'></div>
-      </div>
-      </div>
+
+    <div class = "search-recipient">
+    <%= render 'form_search' %>
+    </div>
+
       <% @users.each do |user| %>
       <div class="col-xs-12">
         <div class="card-medlii" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
@@ -55,6 +54,7 @@
 
 <% content_for :after_js do %>
 <script >
+// JAVASCRIPT FOR THE AGE SLIDER
   $(document).ready(function() {
     var html5Slider = document.getElementById('input-select');
     noUiSlider.create(html5Slider, {
@@ -76,8 +76,59 @@
       $('#min_age').val(values[0]);
       $('#max_age').val(values[1]);
     });
-  });
+  // ENDS HERE
+
+    var html5Slider = document.getElementById('distance-select');
+    noUiSlider.create(html5Slider, {
+     start: 50,
+     tooltips: [ wNumb({ decimals: 0 })],
+     margin: 1,
+       // direction: 'rtl',
+       step: 1,
+      connect: "lower",
+       range: {
+         'min': 0,
+         'max': 100
+       }
+     });
+html5Slider.noUiSlider.on('update', function( values, handle ) {
+      $('#distance').val(values[0]);
+    });
+
+function dots_search(){
+    $('.ratingComponent__dot').on('click', function(){
+      $(this).addClass("hover")
+      $(this).prevAll().removeClass("hover")
+      var level = $(this).attr('id');
+      console.log(level);
+      $('#level').val(level);
+    });
+
+    $('#1').on('click', function(){
+      $('.level_description').empty().append('<p>1: <i>beginner</i> </p>')
+    });
+    $('#2').on('click', function(){
+      $('.level_description').empty().append('<p>2: <i>amateur</i> </p>')
+    });
+    $('#3').on('click', function(){
+      $('.level_description').empty().append('<p>3: <i>intermediate</i> </p>')
+    });
+    $('#4').on('click', function(){
+      $('.level_description').empty().append('<p>4: <i>semi-pro</i> </p>')
+    });
+    $('#5').on('click', function(){
+      $('.level_description').empty().append('<p>5: <i>pro</i> </p>')
+    });
+  };
+  dots_search()
+
+
+$('#logo-medlii').click(function(){
+$('.search-recipient').toggleClass('slidedown');
+});
+});
+
+
 </script>
 <% end %>
-
 
