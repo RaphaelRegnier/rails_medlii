@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   before_action :set_user, only: [:show, :edit, :add_instruments, :destroy]
 
 
@@ -8,34 +7,37 @@ class UsersController < ApplicationController
   end
 
   def index
+    ids = PlayedInstrument.select(:instrument_id)
+
+    @instruments = Instrument.where(id: ids).distinct
+
     if current_user.birth_date.blank? || current_user.location.blank?
       flash[:notice] = "Please fill the birth date and address"
       redirect_to edit_user_path(current_user)
     elsif
-
-      if params[:instrument_id]
-        played_instruments_params = { instrument_id: params[:instrument_id] }
-
-        unless params[:level].empty?
-          played_instruments_params[:level] = params[:level]
+      if params[:instrument_id] || params[:distance] || params[:level] || params[:min_age] || params[:max_age]
+        if params[:distance] != ""
+          @users = User.near(current_user.location, params[:distance], units: :km, :order => 'distance')
         end
+        if params[:instrument_id] != ""
+          if params[:distance] == ""
+             @users = User.all
+          end
+          played_instruments_params = { instrument_id: params[:instrument_id] }
 
-        @users  =  User.joins(:played_instruments).where(played_instruments: played_instruments_params)
+          unless params[:level].empty?
+            played_instruments_params[:level] = params[:level]
+          end
+            @users = @users.joins(:played_instruments).where(played_instruments: played_instruments_params)
 
-        unless params[:min_age].empty? && params[:max_age].empty?
-          @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+          unless params[:min_age].empty? && params[:max_age].empty?
+            @users = @users.where(:age => params[:min_age].to_i..params[:max_age].to_i)
+          end
         end
       else
         @users = User.all
       end
     end
-
-    #   if current_user.birth_date.blank? || current_user.location.blank?
-    #     flash[:notice] = "Please fill the birth date and address"
-    #     redirect_to edit_user_path(current_user)
-    #   else
-    #     @users = User.all
-    #   end
   end
 
   def edit
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
     # current_user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
     current_user.age = (Date.today - current_user.birth_date) / 365
     current_user.save
-    redirect_to users_path
+    redirect_to new_played_instrument_path
   end
 
 

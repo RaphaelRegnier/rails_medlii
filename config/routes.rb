@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
 
 
-
   resources :conversations do
      resources :messages, only: [:index, :new, :create, :destroy]
    end
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
    # devise_for :users
 
 mount Attachinary::Engine => "/attachinary"
+
 
 end
 
