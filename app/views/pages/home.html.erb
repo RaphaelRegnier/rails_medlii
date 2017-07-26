@@ -5,6 +5,6 @@
   </div>
   <div id="catch-phrase">find your music partner.</div>
   <%# link_to 'LOG IN', user_registration_path, class: "btn-login"%>
-    <%= link_to ("<i class='fa fa-facebook-square'></i>  #{OmniAuth::Utils.camelize(:facebook)}").html_safe, omniauth_authorize_path(:user, :facebook), class: "btn btn-info" %>
+    <%= link_to ("<i class='fa fa-facebook-square'></i> LOG IN").html_safe, omniauth_authorize_path(:user, :facebook), class: "btn-login" %>
 </div>
 
