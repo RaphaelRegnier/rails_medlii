@@ -6,6 +6,9 @@
   <% end %>
 </div>
 
+<div><%= link_to "Make an appointment", new_appointment_path %></div>
+</div>
+
 <%= simple_form_for [@conversation, @message], :url => conversation_messages_path(@conversation), html: { id: "newMessage", class: "chat-form fixed bottom"}, method: "post", remote: true do |f| %>
     <%= f.text_field :content, id: "chat-field" %>
     <%= f.hidden_field :user_id, value: "current_user.id" %>
@@ -14,6 +17,7 @@
 <% end %>
 
 <%= content_for(:after_js) do %>
+
   <script>
     $(document).ready(function() {
       scrollToBottom();
@@ -40,4 +44,4 @@
   </script>
 <% end %>
 
-</div>
+

@@ -5,11 +5,8 @@ Rails.application.routes.draw do
 
   get 'appointments/show'
 
-  get 'new/create'
 
-  get 'new/show'
-
- root to: 'pages#home'
+  root to: 'pages#home'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -25,14 +22,15 @@ Rails.application.routes.draw do
 
 
   resources :conversations do
-     resources :messages, only: [:index, :new, :create, :destroy]
-   end
+    resources :messages, only: [:index, :new, :create, :destroy]
+  end
 
-   get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
-   # devise_for :users
+  get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
+  # devise_for :users
 
-mount Attachinary::Engine => "/attachinary"
+  resources :appointments, only: [:new, :create, :show]
+
+  mount Attachinary::Engine => "/attachinary"
 
 
 end
-

@@ -1,2 +1,9 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<%= simple_form_for(@appointment, remote: true) do |f| %>
+<div class="partial_form">
+  <%= f.input :address, as: :string, label: '"Where do you want to meet?"', placeholder: "5333 Casgrain Ave", id: 'address'  %>
+<%= f.input :date, as: :datetime, start_year: Date.today.year, end_year: Date.today.year + 110, input_html: { class: 'datepicker'} %>
+<%= f.button :submit, "Let's play!" %>
+
+<% end %>
+
+
