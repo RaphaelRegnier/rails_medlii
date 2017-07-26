@@ -8,8 +8,9 @@ class User < ApplicationRecord
   has_many :instruments, through: :played_instruments
   has_many :played_instruments, dependent: :destroy
 
-  has_many :messages
-  has_many :conversations, foreign_key: :sender_id
+  has_many :conversations
+  has_many :sent_messages, :class_name => "Message", :foreign_key => "user_1_id"
+  has_many :received_messages, :class_name => "Message", :foreign_key => "user_2_id", through: :conversations
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
