@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'appointments/new'
+
+  get 'appointments/create'
+
+  get 'appointments/show'
+
+  get 'new/create'
+
+  get 'new/show'
+
  root to: 'pages#home'
 
   devise_for :users,
