@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Conversations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <tr>
+        <td><%= link_to conversation do %>
+              <% if conversation.user1 == current_user %>
+                <% recipient = conversation.user2 %>
+              <% elsif conversation.user2 == current_user%>
+                <% recipient = conversation.user1 %>
+              <% end %>
+              Conversation with <%= recipient.email %>
+            <% end %>
+        </td>
+        <td><%= link_to conversation, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Conversation', new_conversation_path %>

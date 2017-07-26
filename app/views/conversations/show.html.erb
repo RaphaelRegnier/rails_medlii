@@ -1,0 +1,43 @@
+<div style="margin-top: 100px;">
+
+<div class="container" id="messages-list" >
+  <% @conversation.messages.each do |message| %>
+    <%= render "messages/show", message: message %>
+  <% end %>
+</div>
+
+<%= simple_form_for [@conversation, @message], :url => conversation_messages_path(@conversation), html: { id: "newMessage", class: "chat-form fixed bottom"}, method: "post", remote: true do |f| %>
+    <%= f.text_field :content, id: "chat-field" %>
+    <%= f.hidden_field :user_id, value: "current_user.id" %>
+    <%= f.hidden_field :conversation_id, value: params[:conversation_id] %>
+    <%= f.submit "Send", class: "btn btn-chat"%>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      scrollToBottom();
+      setInterval(refreshMessages, 1000);
+    });
+    function scrollToBottom(){
+      var d = $('#messages-list');
+      d.scrollTop(d.prop("scrollHeight"));
+    }
+    function refreshMessages() {
+      if($("#messages-list .message").length > 0) {
+        var lastMessage = $("#messages-list .message").last().data("messageId");
+        $.ajax({
+          url: "<%= j refresh_messages_path(@conversation) %>",
+          data: {last_message_id: lastMessage},
+        });
+      } else {
+        $.ajax({
+          url: "<%= j refresh_messages_path(@conversation) %>",
+        });
+      }
+      scrollToBottom();
+    }
+  </script>
+<% end %>
+
+</div>
