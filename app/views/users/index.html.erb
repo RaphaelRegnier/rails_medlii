@@ -1,8 +1,10 @@
 <div class="white-background" style="background-image: url('<%= asset_path "white_background.png" %>');"></div>
 <div class="container margin-top">
   <div class="row">
+  </div>
     <div class ="col-xs-12">
       <div ><%= render 'form_search' %></div>
+<div class="slider shor">
       <div id='input-select'></div>
     </div>
     <% @users.each do |user| %>
@@ -21,7 +23,7 @@
           <div class="card-content">
             <div class="user-info">
               <%= user.first_name.upcase %> <%= user.last_name.upcase %>
-              <%= (Geocoder::Calculations.distance_between(current_user.location, user.location, {units: :km})).round %>km away
+              <%= (Geocoder::Calculations.distance_between(current_user.location, user.location, {units: :km})).to_f.round %>km away
             </div>
             <div class='instruments-container'>
               <div class="user-instruments">
@@ -66,7 +68,7 @@
          'max': 80
        }
       });
-    
+
       html5Slider.noUiSlider.on('update', function( values, handle ) {
         $('#min_age').val(values[0]);
         $('#max_age').val(values[1]);
