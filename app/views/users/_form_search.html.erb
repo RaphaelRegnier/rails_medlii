@@ -5,7 +5,7 @@
   <%= number_field_tag('max_age', value = nil, options = {},) %>
   <%= number_field_tag('level', value = nil, options = {},) %>
   <%= label :distance, "Distance : " %>
-  <%= text_field_tag :distance, params[:distance] %>
+  <%= number_field_tag :distance, params[:distance] %>
 
   <%= submit_tag "Go", name: nil, class: 'btn' %>
 <% end %>
