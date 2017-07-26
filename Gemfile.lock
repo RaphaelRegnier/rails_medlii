@@ -183,6 +183,7 @@ GEM
       railties (= 5.0.4)
       sprockets-rails (>= 2.0.0)
     rails-assets-underscore (1.8.3)
+    rails-assets-wnumb (1.1.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -283,6 +284,7 @@ DEPENDENCIES
   puma
   rails (= 5.0.4)
   rails-assets-underscore!
+  rails-assets-wnumb!
   redis
   sass-rails
   simple-form-datepicker
