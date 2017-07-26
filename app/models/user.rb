@@ -48,4 +48,7 @@ class User < ApplicationRecord
     return user
   end
 
+  def image_url
+    facebook_picture_url || photo.path || "http://placehold.it/30x30"
+  end
 end

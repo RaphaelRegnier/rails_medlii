@@ -1,30 +1,105 @@
 #messages-list {
   display: flex;
-  height: 60vh;
-  width: 60%;
+  height: 100%;
   overflow: scroll;
   flex-direction: column;
   scroll-behavior: smooth;
+  margin-bottom: 140px;
 }
 .message {
   position: relative !important;
   padding: 10px;
   margin: 5px;
+  font-family: arial;
+
   &.received {
+    position: absolute;
+    left: 0;
     align-self: flex-start;
-    background-color: $blue;
-    border-radius: 20px 20px 20px 0px;
-    color: white;
+    background-color: #F1F0F0;
+    border-radius: 13px 13px 13px 0px;
+    color: black;
+    width: 300px;
+    justify-content: left;
+    margin-top: 15px;
   }
   &.sent {
+    position: absolute;
+    right: 0;
     align-self: flex-end;
-    background-color: #CECECE;
-    border-radius: 20px 20px 0px 20px;
+    background-color: #4080FF;
+    border-radius: 13px 13px 0px 13px;
+    color: white;
+    width: 300px;
+    justify-content: left;
+    margin-top: 15px;
   }
+  p {
+    padding-left: 10px;
+  }
+}
+
+.message-content{
+  padding: 10px;
 }
 
 form#newMessage {
-    display: flex;
-    justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
+#chat-field{
+  width: 100%;
+  border: none;
+  border-top: solid #F1F0F0 2px;
+  height: 70px;
+  padding: 0 20px;
+}
+
+.btn-send{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  background-color: $blue !important;
+  color: white !important;
+  border: solid $blue 5px !important;
+  margin: 0px !important;
+}
+
+.avatar-sent{
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    opacity: 0;
+    // opactiy: 1.0;
+}
+
+.avatar-received{
+  position: absolute;
+    bottom: -8px;
+    left: -8px;
+    border: solid #F1F0F0 3px;
+}
+
+.form-message{
+  position:relative;
+}
+
+.time{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 9px;
+    padding: 0 25px 0 0;
+    color: rgb(30,30,30);
+    font-style: italic;
+}
+.time-sent{
+    color: white;
+}
+
+.time-received{
+
+    color: rgb(30,30,30);
+}
