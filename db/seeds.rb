@@ -29,8 +29,12 @@ addresses = ["1234 Drummond Street, Montreal, QC, Canada", "1000 de la commune, 
 end
 
 
-User.create(first_name: "Serene", last_name: "Gomez", email: "serenegomez@gmail.com", password: "pikapika", description: "Hi ! I've been looking for a partner to try cool music stuff, I'd like to try songs out of the classical registry with my cello, so if you're a pop singer or something like that, let's play together !", birth_date: Faker::Date.birthday(21, 30), location: addresses[3], song: songs[3], photo_url: "https://farm5.static.flickr.com/4228/34934825612_f87e358096_b.jpg")
-PlayedInstrument.create(user: User.find_by(email: "serenegomez@gmail.com"), instrument: Instrument.find_by(name: "cello"), level: 4)
-PlayedInstrument.create(user: User.find_by(email: "serenegomez@gmail.com"), instrument: Instrument.find_by(name: "voice"), level: 3)
+serene = User.new(first_name: "Serene", last_name: "Gomez", email: "serenegomez@gmail.com", password: "pikapika", description: "Hi ! I've been looking for a partner to try cool music stuff, I'd like to try songs out of the classical registry with my cello, so if you're a pop singer or something like that, let's play together !", birth_date: Faker::Date.birthday(21, 30), location: addresses[3], song: songs[1], photo_url: "https://farm5.static.flickr.com/4228/34934825612_f87e358096_b.jpg")
+ birthday = serene.birth_date
+    now = Date.today
+    serene.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  serene.save
+PlayedInstrument.create(user: serene, instrument_id: Instrument.find_by(name: "Cello").id, level: 4)
+PlayedInstrument.create(user: serene, instrument_id: Instrument.find_by(name: "Voice").id, level: 3)
 
 puts "done seeding !"
