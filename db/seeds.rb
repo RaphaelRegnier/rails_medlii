@@ -29,7 +29,7 @@ addresses = ["1234 Drummond Street, Montreal, QC, Canada", "1000 de la commune, 
 end
 
 
-other = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 40), location: addresses[i], photo_url: profiles_pic[i], song: songs[i])
+other = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 40), location: addresses[4], photo_url: profiles_pic[2], song: songs[3])
     birthday = other.birth_date
     now = Date.today
     other.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
