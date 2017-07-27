@@ -2,7 +2,6 @@
 <div class="container margin-top">
   <div class="row">
 
-
     <div class = "search-recipient">
       <%= render 'form_search' %>
     </div>
@@ -48,8 +47,13 @@
 
         </div>
           <div class="distance-away">
-            <%= (Geocoder::Calculations.distance_between(current_user.location, user.location, {units: :km})).to_f.round %>km away
-            </div>
+            <% distance = (Geocoder::Calculations.distance_between(current_user.location, user.location, {units: :km})) %>
+            <% if distance.nan? %>
+              Unknown distance
+            <% else %>
+              <%= distance.to_f.round %>km away
+            <% end %>
+          </div>
         <%= link_to '', user_path(user), class: "card-link"%>
       </div>
     </div>

@@ -47,13 +47,14 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px 30px;
+  padding: 20px 30px;
   font-family: 'Raleway', serif;
   font-size: 15px;
   text-align: justify;
   bottom: 55px;
   position: absolute;
   top: 105px;
+  width: 100%;
 }
 
 .link-message{
@@ -67,7 +68,7 @@
   }
 }
 
-.message{
+.message-link{
   position: absolute;
   bottom: 0px;
   display: flex;
@@ -146,3 +147,23 @@ color: $blue;
 #picture{
   position: relative;
 }
+
+.edit{
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  font-size: 24px;
+}
+
+.show-top{
+  top: 70px;
+}
+
+.no-description{
+  height: 180px;
+}
+
+.top-no-description{
+  top: 285px;
+}
+

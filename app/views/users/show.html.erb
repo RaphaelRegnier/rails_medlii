@@ -2,23 +2,29 @@
 <%= link_to :back, id:'back-arrow' do %>
   <i class="fa fa-angle-left" aria-hidden="true"></i>
 <% end %>
+<% if @user == current_user %>
+<%= link_to '', edit_user_registration_path, class: 'fa fa-pencil cross edit', id: 'edit' %>
+<% end %>
 <div class="profile-page margin-top">
   <div class="flexbox-picture">
     <div id="picture">
       <% avatar_url = @user.facebook_picture_url || cl_image_path(@user.photo.path) || "http://placehold.it/30x30" %>
       <%= image_tag avatar_url, class: 'avatar-large'%>
-      <div id="age-show"> <%= @user.age %></div>
+
     </div>
   </div>
   <div class="user-show">
-    <div class="user-name-show">
+  <div class="flex-container-info">
+    <div class="user-info show-top">
       <%= @user.first_name.upcase %> <%= @user.last_name.upcase %>
+      <p id="age"> <%= @user.age %> years old</p>
+    </div>
     </div>
     <div class="user-description">
       <%= @user.description %>
     </div>
     <% if @user.id != current_user.id %>
-      <div class="message">
+      <div class="message-link">
         <%= link_to "MESSAGE", conversations_path(conversation: {user2: @user.id}), method: :post, class: "link-message", id: 'link-message' %>
       </div>
     <% end %>
@@ -44,10 +50,8 @@
         <% end %>
       </div>
     </div>
-  </div>
+    <% if @user.song.present? %>
 
-  <% if @user.song.present? %>
-    <div class="profile-instruments">
       <div class="flexbox-icon">
         <%= image_tag 'piano-keys-part.png', id: 'icon-piano' %>
       </div>
@@ -59,11 +63,18 @@
       </div>
     </div>
   </div>
-
-  <% else %>
-    <div></div>
   <% end %>
-</div>
+  </div>
 
 
 
+
+<% content_for :after_js do %>
+<% if @user.description.blank? %>
+<script>
+$('.user-show').addClass('no-description')
+$('.user-description').remove()
+$('.profile-instruments').addClass('top-no-description')
+</script>
+<% end %>
+<% end %>

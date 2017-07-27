@@ -5,7 +5,14 @@
       <span></span>
       <span></span>
     </div>
+<div class="flex-title-navbar">
     <div class="navbar-title">medlii.</div>
+</div>
+
+    <% current_uri = request.env['PATH_INFO'] %>
+<% if current_uri == users_path %>
     <div id = "logo-medlii" class="navbar-search-logo" style=" background-image: url('<%= asset_path "medlii_blue_logo.png" %>');"> </div>
+    <% end %>
   </div>
 <% end %>
+
