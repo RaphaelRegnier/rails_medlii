@@ -1,8 +1,9 @@
 <h1>Appointments#show</h1>
 <p>Find me in app/views/appointments/show.html.erb</p>
 
-<% current_user.appointment.each do |appointment| %>
+<% current_user.appointments.each do |appointment| %>
   <%= appointment.address %>
     <%= appointment.date %>
+    <% end %>
 
 

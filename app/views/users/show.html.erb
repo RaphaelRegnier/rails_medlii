@@ -22,6 +22,7 @@
         <%= link_to "MESSAGE", conversations_path(conversation: {user2: @user.id}), method: :post, class: "link-message", id: 'link-message' %>
          </div>
 
+  <div>
    <% current_user.appointments.each do |appointment| %>
    <%= appointment.address %>
     <%= appointment.date %>

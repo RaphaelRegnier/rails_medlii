@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'appointments/new'
-
-  get 'appointments/create'
-
-  get 'appointments/show'
 
   root to: 'pages#home'
 
@@ -18,10 +13,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :index, :update]
 
-  resources :appointments, only: [:new, :create, :show]
-
   resources :conversations do
     resources :messages, only: [:index, :new, :create, :destroy]
+    resources :appointments, only: [:new, :create, :show]
   end
 
   get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
