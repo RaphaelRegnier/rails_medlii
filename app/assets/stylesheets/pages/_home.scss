@@ -36,6 +36,12 @@
   top: 80vh;
   position: inherit;
   border: 1px solid;
+  &:hover{
+    text-decoration: none;
+  }
+  &:focus{
+    text-decoration: none;
+  }
 }
 
 .banner-logo{
