@@ -35,7 +35,7 @@ other = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.las
     other.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
   other.save
 
-PlayedInstrument.create(level: rand(1..5), instrument_id: Instrument.find_by(name: "Cello"), user: other)
+PlayedInstrument.create(level: rand(1..5), instrument_id: Instrument.find_by(name: "Cello").id, user: other)
 
 
 
