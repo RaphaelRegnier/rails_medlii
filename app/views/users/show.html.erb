@@ -51,20 +51,16 @@
       </div>
     </div>
     <% if @user.song.present? %>
-
-      <div class="flexbox-icon">
-        <%= image_tag 'piano-keys-part.png', id: 'icon-piano' %>
+      <div class="flexbox-icon spotify">
+        <%= image_tag 'compact-disc.png', id: 'icon-piano' %>
       </div>
-      <div class='instruments-container'>
-        <div class="user-instruments for-profile">
-         <div class='container'>
-            <iframe src="https://open.spotify.com/embed?uri=spotify:track:<%= @user.song.split('/')[-1] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-          </div>
-      </div>
+      <div class='flexbox-spotify'>
+      <iframe src="https://open.spotify.com/embed?uri=spotify:track:<%= @user.song.split('/')[-1] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
     </div>
   </div>
   <% end %>
   </div>
+
 
 
 
