@@ -1,5 +1,11 @@
-<h1>New Conversation</h1>
+<div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
+<div class="container conversation-form margin-top">
+  <div class="row margin-left-new">
+    <div class="col-xs-12">
+      <h2 class="margin-top">NEW</h2>
+      <h2 class="margin-shrink">CONVERSATION</h2>
 
-<%= render 'form', conversation: @conversation %>
-
-<%= link_to 'Back', conversations_path %>
+      <%= render 'form', conversation: @conversation %>
+    </div>
+  </div>
+</div>

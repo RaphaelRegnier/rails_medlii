@@ -1,0 +1,91 @@
+.conversation-form {
+  font-family: 'Raleway', serif;
+  h2 {
+    margin-bottom: 30px;
+    font-family: 'Raleway', serif;
+    color: white;
+    font-size: 34px;
+  }
+}
+
+.margin-left-conv {
+  margin-left: 0px;
+}
+
+.margin-left-new {
+  margin-left: 20px;
+}
+.margin-shrink {
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.margin-top-new {
+  margin-top: 30px;
+}
+
+.conv-card {
+  display: inline-block;
+  position: relative;
+  width: 85%;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.84);
+  background: #ffffff;
+  margin-bottom: 40px;
+  display: flex;
+  height: 15vh;
+  padding: 25px;
+}
+
+.conv-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+  background: black;
+  opacity: 0;
+}
+
+.conv-message {
+  position: relative;
+  left: 10px;
+}
+
+.conv-image {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', serif;
+  h3 {
+    font-family: 'Raleway', serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0px;
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.margin-img {
+  margin-left: 25px;
+}
+
+.avatar-border {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+  position: relative;
+  bottom: 15px;
+  right: 30px;
+}
+
+.new-link {
+  color: white;
+  width: 85%;
+  top: -20px;
+}
+
