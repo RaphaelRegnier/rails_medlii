@@ -23,7 +23,7 @@ addresses = ["1234 Drummond Street, Montreal, QC, Canada", "1000 de la commune, 
     user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
   user.save
   i+=1
-  rand(1..5).times do
+  rand(1..4).times do
     PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: user)
   end
 end
