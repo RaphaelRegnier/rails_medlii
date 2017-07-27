@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   font-family: 'Raleway', serif;
-  h3 {
+  h2 {
     font-family: 'Raleway', serif;
     font-size: 14px;
     font-weight: bold;
@@ -89,3 +89,19 @@
   top: -20px;
 }
 
+.text-size {
+  position: relative;
+  left: 85px;
+  z-index: 3;
+  color: black;
+  bottom: 75px;
+  width: 150px;
+}
+
+.card-medlii-conv{
+  background-color: white;
+  position: relative;
+  height: 80px;
+  width: 90%;
+  font-family: 'Raleway', serif;
+}

@@ -15,12 +15,12 @@
             <% end %>
             <div class="conv-image">
            <%= cl_image_tag recipient.photo.path, class: "avatar-border margin-img" %>
-            <h3><%= recipient.first_name %> <%= recipient.last_name %></h3></div>
+            <h2><%= recipient.first_name %> <%= recipient.last_name %></h2></div>
               <div class="conv-message">
                 <% if Message.where(conversation_id: conversation.id).empty? %>
                   <p><%= "no messages yet" %></p>
                   <% else %>
-                  <p><%= Message.where(conversation_id: conversation.id).order('created_at DESC').first.content %></p>
+                  <p class="text-size"><%= truncate(Message.where(conversation_id: conversation.id).order('created_at DESC').first.content, length: 40, omission: "...") %></p>
                   <% end %>
             </div>
           <%= link_to conversation, method: :delete, data: { confirm: 'Are you sure?' } do %>
@@ -28,6 +28,22 @@
               <% end %>
         <%= link_to '', conversation_path(conversation), class: 'conv-link' %>
         </div>
+
+          <div class="card-medlii-conv">
+            <div class="picture-conv">
+              <div class="flex-name">
+                <div class="last-message">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+<br> <br>
+
+
 
       <% end %>
 
