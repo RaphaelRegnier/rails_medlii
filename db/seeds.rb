@@ -28,11 +28,4 @@ addresses = ["1234 Drummond Street, Montreal, QC, Canada", "1000 de la commune, 
   end
 end
 
-
-admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: '717 Charron Street Lasalle QC H8P 3T8', photo_url: 'app/assets/images/pika.jpg')
-
-3.times do
-  PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: User.find_by(first_name: "Pika"))
-end
-
 puts "done seeding !"
