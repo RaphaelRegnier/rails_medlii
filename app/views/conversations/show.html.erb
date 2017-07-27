@@ -6,7 +6,7 @@
   <% end %>
 </div>
 
-<div><%= link_to "Make an appointment", new_appointment_path %></div>
+<div><%= link_to "Make an appointment", new_appointment_path%></div>
 </div>
 
 <%= simple_form_for [@conversation, @message], :url => conversation_messages_path(@conversation), html: { id: "newMessage", class: "chat-form fixed bottom"}, method: "post", remote: true do |f| %>
