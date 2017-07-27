@@ -5,9 +5,9 @@
 
 
 <%= label :instrument_id, { class: 'instruments-label'}, "Instrument"  %>
-  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]), { class: 'form-control select with-margin', id: 'white-color' } %>
+  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]), { class: 'form-control select', id: 'white-color', include_blank: true} %>
 
-<%= number_field_tag('level', value = nil, options = { class: 'hidden'},) %>
+<%= number_field_tag('level', value = nil, options = { class: 'hidden'}) %>
 
 
         <div class="level for-search">

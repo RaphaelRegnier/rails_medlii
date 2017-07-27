@@ -26,5 +26,16 @@ z-index: 2;
   color: rgb(29,68,103);
   font-weight: 700;
   font-size: 20px;
-  padding-right:15px;
+}
+
+.flex-title-navbar{
+height: 50px;
+top: 0px;
+right: 0px;
+left: 0px;
+position: fixed;
+display: flex;
+z-index: 1;
+align-items: center;
+justify-content:center;
 }
