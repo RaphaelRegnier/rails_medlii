@@ -13,26 +13,38 @@ end
 
 i = 0
 profiles_pic = %w(http://lorempixel.com/400/400/people/1/ http://lorempixel.com/400/400/people/2/ http://lorempixel.com/400/400/people/3/ http://lorempixel.com/400/400/people/4/ http://lorempixel.com/400/400/people/5/ http://lorempixel.com/400/400/people/6/ http://lorempixel.com/400/400/people/7/ http://lorempixel.com/400/400/people/8/ http://lorempixel.com/400/400/people/9/ http://lorempixel.com/400/400/people/10/)
-
-addresses = ["6817 43 Av Montreal QC H1T 2R9", "7503 Rue St Denis Montreal QC H2R 2E7", "251 Av Percival Montreal Ouest QC H4X 1T8", "7766 George Street Lasalle QC H8P 1E1", "11727 Rue Notre Dame E Montreal QC H1B 2X8", "5745 17 Av Montreal QC H1X 2R7", "3708 Rue St Hubert Montreal QC H2L 4A2", "800 Rue Gagne Lasalle QC H8P 3W3", "4430 Ste Catherine Street, Westmount, H3Z 3E4 Montreal", "5930 Rue Hurteau Montreal QC H4E 2Y2"]
+songs = %w(https://open.spotify.com/track/0P0YHs0fjvYiTcLgTjaCOG https://open.spotify.com/track/2eLQzjfkfh7o88PW4BrtXx https://open.spotify.com/track/7KaROZFIMjrs42DYa09lqb https://open.spotify.com/track/7iGihxJtonRihMflgIbj13 https://open.spotify.com/track/0FE9t6xYkqWXU2ahLh6D8X https://open.spotify.com/track/66qlqxhEMpSHOzjRK4il0b https://open.spotify.com/track/7q4HeVYqt1XNOEaTpuQdB3 https://open.spotify.com/track/69RoAhDqFOiQb2pQvb24Ii https://open.spotify.com/track/4CwHxHsM3gN60eZY1dto3G https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2 https://open.spotify.com/track/2TiVvOB4o9IWSlgEUIJXc8 https://open.spotify.com/track/14Yt3KfCCbtpgUkKPgKJMc https://open.spotify.com/track/3DNRdudZ2SstnDCVKFdXxG https://open.spotify.com/track/68vgtRHr7iZHpzGpon6Jlo https://open.spotify.com/track/3dhjNA0jGA8vHBQ1VdD6vV https://open.spotify.com/track/6LJFgCd9wU2VptHEwz2Wl3)
+addresses = ["1234 Drummond Street, Montreal, QC, Canada", "1000 de la commune, Montréal, QC, Canada", "3879 Wellington Street, Verdun, QC, Canada", "3879 Ontario Street East, Montreal, QC, Canada", "2300 Boul. du Tricentenaire, Montréal, QC, Canada", "4654 Rue Saint-Urbain, Montreal, QC, Canada", "4500 Ch. de la Côte-des-Neiges, Westmount, QC, Canada", "1112 Crolssant Verdon Laval, QC, Canada", "4430 Rue Saint-Antoine Ouest, Montreal, QC, Canada", "5930 Montreal Road Ottawa, ON, Canada"]
 
 10.times do
-  user = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 65), location: addresses[i], photo_url: profiles_pic[i])
+  user = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 40), location: addresses[i], photo_url: profiles_pic[i], song: songs[i])
     birthday = user.birth_date
     now = Date.today
     user.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
   user.save
   i+=1
-  rand(1..5).times do
+  rand(1..4).times do
     PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: user)
   end
 end
 
 
-admin = User.create(first_name: 'Pika', last_name: 'Chu',email: 'pikachu@pokemail.net', password: 'pikapika', location: '717 Charron Street Lasalle QC H8P 3T8', photo_url: 'app/assets/images/pika.jpg')
+other = User.new(first_name: Faker::Name.first_name , last_name: Faker::Name.last_name,email: Faker::Internet.email, password: Faker::Internet.password, description: Faker::Lorem.paragraph, birth_date: Faker::Date.birthday(18, 40), location: addresses[4], photo_url: profiles_pic[2], song: songs[3])
+    birthday = other.birth_date
+    now = Date.today
+    other.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  other.save
 
-3.times do
-  PlayedInstrument.create(level: rand(1..5), instrument_id: rand(Instrument.first.id..Instrument.last.id), user: User.find_by(first_name: "Pika"))
-end
+PlayedInstrument.create(level: rand(1..5), instrument_id: Instrument.find_by(name: "Cello").id, user: other)
+
+
+
+serene = User.new(first_name: "Serene", last_name: "Gomez", email: "serenegomez@gmail.com", password: "pikapika", description: "Hi ! I've been looking for a partner to try cool music stuff, I'd like to try songs out of the classical registry with my cello, so if you're a pop singer or something like that, let's play together !", birth_date: Faker::Date.birthday(21, 30), location: addresses[3], song: songs[1], photo_url: "https://farm5.static.flickr.com/4228/34934825612_f87e358096_b.jpg")
+ birthday = serene.birth_date
+    now = Date.today
+    serene.age = now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  serene.save
+PlayedInstrument.create(user: serene, instrument_id: Instrument.find_by(name: "Cello").id, level: 4)
+PlayedInstrument.create(user: serene, instrument_id: Instrument.find_by(name: "Voice").id, level: 3)
 
 puts "done seeding !"

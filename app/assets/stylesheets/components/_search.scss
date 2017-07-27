@@ -3,4 +3,52 @@
   position: absolute;
   top: -19px;
   right: -2px;
+  color: white;
+}
+
+
+.search-form{
+width: 100vw;
+height: 100vh;
+position: relative;
+background-size: contain;
+padding: 20px 50px;
+}
+
+.form_for_search{
+  width: 100%;
+  text-align: center;
+  label{
+    color: white;
+    font-size: 15px;
+    margin-top: 4vh;
+    margin-bottom: 5vh;
+  }
+}
+
+.slider {
+  margin-top: 4vh!important;
+}
+
+.for-search{
+  margin-top: 30px;
+}
+
+
+.more-margin{
+  margin-top: 8vh !important;
+}
+
+.search-recipient{
+  position: fixed;
+  top: calc(-100vh + 49px) ;
+  z-index: 2;
+  width: 100vw;
+  transition: top, ease, 0.4s;
+  border: solid 1px white;
+}
+
+.slidedown{
+  top: 50px;
+  transition: top, ease, 0.3s;
 }

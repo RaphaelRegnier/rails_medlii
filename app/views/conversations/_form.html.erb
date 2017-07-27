@@ -1,9 +1,9 @@
 <%= simple_form_for(@conversation) do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :user2, collection: User.all.map{ |u| [u.email, u.id, { class: u.id}] } %>
-
+  <div class="form-inputs">
+  <%= f.input :user2, collection: User.all.map{ |u| ["#{u.first_name} #{u.last_name}", u.id, { class: u.id}] }, label: "To: ", label_html: {id: 'instrument-input'}, input_html: { class: 'input', id: 'white-color' } %>
+  </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "CREATE CONVERSATION", class: 'btn btn-primary input' %>
   </div>
 <% end %>

@@ -1,11 +1,44 @@
-<%= form_tag users_path(), method: :get do %>
+<div class ="search-form" style="background-image: url('<%= asset_path "blue_background.jpg" %>');">
 
-  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]) %>
-  <%= number_field_tag('min_age', value = nil, options = {},) %>
-  <%= number_field_tag('max_age', value = nil, options = {},) %>
-  <%= number_field_tag('level', value = nil, options = {},) %>
-  <%= label :distance, "Distance : " %>
-  <%= number_field_tag :distance, params[:distance] %>
+<%= form_tag users_path(),class: 'form_for_search', method: :get do %>
 
-  <%= submit_tag "Go", name: nil, class: 'btn' %>
+
+
+<%= label :instrument_id, { class: 'instruments-label'}, "Instrument"  %>
+  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]), { class: 'form-control select', id: 'white-color', include_blank: true} %>
+
+<%= number_field_tag('level', value = nil, options = { class: 'hidden'}) %>
+
+
+        <div class="level for-search">
+    <h4>Level : </h4>
+    <div class="ratingComponent__rating">
+      <div id="5" class="ratingComponent__dot unRated"></div>
+      <div id="4" class="ratingComponent__dot unRated"></div>
+      <div id="3" class="ratingComponent__dot unRated"></div>
+      <div id="2" class="ratingComponent__dot unRated"></div>
+      <div id="1" class="ratingComponent__dot unRated"></div>
+    </div>
+  </div>
+
+<%= label :min_age, "age"  %>
+  <%= number_field_tag('min_age', value = nil, options = { class: 'hidden' },) %>
+  <%= number_field_tag('max_age', value = nil, options = { class: 'hidden' },) %>
+
+      <div class="slider shor">
+        <div id='input-select'></div>
+      </div>
+
+ <%= label :distance, "Radius (km)"  %>
+  <%= number_field_tag :distance, params[:distance], class: 'hidden' %>
+
+  <div class="slider shor slider-success">
+        <div id='distance-select'></div>
+      </div>
+
+
+
+  <%= submit_tag "GO!", name: nil, class: 'btn btn-raise btn-primary more-margin' %>
 <% end %>
+</div>
+

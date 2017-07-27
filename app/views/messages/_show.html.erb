@@ -1,9 +1,7 @@
-
-
 <% if current_user.id == message.user_id then status = "sent" else status = "received" end %>
-
   <div class="message <%= status %>" data-message-id="<%= message.id %>">
+  <p class='time time-<%= status %>'><%= time_ago_in_words(message.created_at)  %> ago</p>
+      <p> <%=  message.content %></p>
+      <%= cl_image_tag User.find(message.user_id).image_url,class: "avatar-bordered avatar-#{status}" %>
 
-  <p><%=  message.content %></p>
-
-</div>
+  </div>

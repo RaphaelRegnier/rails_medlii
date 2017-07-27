@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_action :set_conversation, only: [:refresh_messages, :destroy]
+  before_action :set_conversation, only: [:refresh_messages, :destroy, :show]
   def new
     @conversation = Conversation.new
     @conversation.user1 = current_user
