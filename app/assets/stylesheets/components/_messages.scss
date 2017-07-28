@@ -239,3 +239,16 @@ form#newMessage {
 
 //     color: rgb(30,30,30);
 // }
+
+.appointment-link{
+  position: fixed !important;
+  bottom: 58px;
+  right: 13px;
+  top: auto !important;
+  font-size: 25px;
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+}
