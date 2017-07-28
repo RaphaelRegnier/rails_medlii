@@ -1,53 +1,81 @@
 <div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
-<div class="container conversation-form margin-top">
+<!-- <div class="container conversation-form margin-top">
   <p id="notice"><%= notice %></p>
   <div class="row margin-left-new">
     <div class="col-xs-12">
       <h2 class="margin-top-new">MY</h2>
       <h2 class="margin-shrink">CONVERSATION</h2>
 
-      <% @conversations.each do |conversation| %>
+      <%# @conversations.each do |conversation| %>
           <div class="conv-card">
-            <% if conversation.user1 == current_user %>
-              <% recipient = conversation.user2 %>
-            <% elsif conversation.user2 == current_user%>
-              <% recipient = conversation.user1 %>
-            <% end %>
+            <% #if conversation.user1 == current_user %>
+              <% #recipient = conversation.user2 %>
+            <% #elsif conversation.user2 == current_user%>
+              <%# recipient = conversation.user1 %>
+            <% #end %>
             <div class="conv-image">
-           <%= cl_image_tag recipient.photo.path, class: "avatar-border margin-img" %>
-            <h2><%= recipient.first_name %> <%= recipient.last_name %></h2></div>
+
+           <%#= cl_image_tag recipient.photo.path, class: "avatar-border margin-img" %>
+            <h3><%#= recipient.first_name %> <%#= recipient.last_name %></h3></div>
               <div class="conv-message">
-                <% if Message.where(conversation_id: conversation.id).empty? %>
-                  <p><%= "no messages yet" %></p>
-                  <% else %>
-                  <p class="text-size"><%= truncate(Message.where(conversation_id: conversation.id).order('created_at DESC').first.content, length: 40, omission: "...") %></p>
-                  <% end %>
+                <% #if Message.where(conversation_id: conversation.id).empty? %>
+                  <p><%#= "no messages yet" %></p>
+                  <% #else %>
+                  <p><%#= Message.where(conversation_id: conversation.id).order('created_at DESC').first.content %></p>
+                  <% #end %>
+
             </div>
-          <%= link_to conversation, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%#= link_to conversation, method: :delete, data: { confirm: 'Are you sure?' } do %>
               <i class="fa fa-times cross" aria-hidden="true"></i>
-              <% end %>
-        <%= link_to '', conversation_path(conversation), class: 'conv-link' %>
+              <% #end %>
+        <%#= link_to '', conversation_path(conversation), class: 'conv-link' %>
         </div>
 
-          <div class="card-medlii-conv">
-            <div class="picture-conv">
-              <div class="flex-name">
-                <div class="last-message">
+      <% #end %>
 
-                </div>
-              </div>
-            </div>
-          </div>
+  <%#= link_to 'New Conversation', new_conversation_path, class: 'btn btn-primary new-link' %>
+  </div>
+  </div>
+</div>
+ -->
 
-
-
-<br> <br>
-
-
+<div class="container margin-top">
+<p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="xs-col-12">
+      <div class="new-conversation">
+        <h2>MY</h2> <h2>CONVERSATIONS</h2>
+      </div>
+      <% @conversations.each do |conversation| %>
+      <% if conversation.user1 == current_user %>
+      <% recipient = conversation.user2 %>
+      <% elsif conversation.user2 == current_user%>
+      <% recipient = conversation.user1 %>
 
       <% end %>
+      <div class="card-conversations">
+        <div class="flexbox-title-conv">
+          <%= recipient.first_name %> <%= recipient.last_name %>
+        </div>
+        <div class="picture-conv" style="background-image: url('<%= cl_image_path recipient.photo.path %>');">
 
+        </div>
+        <div class="last-message">
+          <% if Message.where(conversation_id: conversation.id).empty? %>
+            <p> no messages yet </p>
+          <% else %>
+            <p><%= truncate(Message.where(conversation_id: conversation.id).order('created_at DESC').first.content, length: 65, omission: "...") %></p>
+          <% end %>
+        </div>
+          <%= link_to conversation, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-times cross" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to '', conversation_path(conversation), class: 'conv-link' %>
+      </div>
+    <% end %>
+    <div class="flex-button-container">
   <%= link_to 'New Conversation', new_conversation_path, class: 'btn btn-primary new-link' %>
-  </div>
+</div>
+    </div>
   </div>
 </div>
