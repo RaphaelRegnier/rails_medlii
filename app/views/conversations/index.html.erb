@@ -56,7 +56,7 @@
           <div class="flexbox-title-conv">
             <%= recipient.first_name %> <%= recipient.last_name %>
           </div>
-        <div class="picture-conv" style="background-image: url('<%= cl_image_path(recipient&.photo&.path || "http://placehold.it/30x30") %>');">
+        <div class="picture-conv" style="background-image: url('<%= recipient.facebook_picture_url || cl_image_path(recipient&.photo&.path || "http://placehold.it/30x30") %>');">
 
         </div>
         <div class="last-message">
