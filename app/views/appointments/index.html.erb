@@ -2,12 +2,24 @@
 <h3>My appointments <h3>
 
 
-<div class = "text-center">
+<div class = "text-center list-unstyled">
 <% current_user.appointments.each do |appointment| %>
-
   <ul>
+  <li>
+    <% if appointment.other_user.photo.nil? %>
+      <% avatar_url = appointment.other_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% else %>
+      <% avatar_url = appointment.other_user.facebook_picture_url || cl_image_path(appointment.other_user.photo.path) || "http://placehold.it/30x30" %>
+    <% end %>
+    <div class = "avatar-large" style=" background-image: url('<%=avatar_url %>');"></div>
+  </li>
+  <li> Player: <%= appointment.other_user.first_name %></li>
   <li> Where we will meet: <%= appointment.address %></li>
   <li> When: <%= appointment.date %></li>
   </ul>
 <% end %>
+
+<div>
+<%= link_to 'Back', users_path, class: 'conv-link' %>
+</div>
 </div>
