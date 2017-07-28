@@ -15,9 +15,10 @@ Rails.application.routes.draw do
 
   resources :conversations do
     resources :messages, only: [:index, :new, :create, :destroy]
-    resources :appointments, only: [:index, :new, :create, :show]
+    resources :appointments, only: [:new, :create, :show]
   end
 
+  resources :appointments, only: [:index]
   get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
   # devise_for :users
 
