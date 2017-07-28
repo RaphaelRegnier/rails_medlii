@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
 
 def index
   @appointments = Appointment.all
+  @conversation = Conversation.find(params[:conversation_id])
 end
 
 def new
@@ -15,12 +16,14 @@ def create
   @conversation = Conversation.find(params[:conversation_id])
   @appointment.conversation_id = @conversation.id
   @appointment.save!
-  redirect_to conversation_path(@conversation)
+  redirect_to conversation_appointment_path(@conversation, @appointment)
+  # conversation_path(@conversation)
+
 end
 
 def show
-  set_appointment
-  @appointment = Appointment.new
+  # set_appointment
+  # @appointment = Appointment.new
 end
 
 

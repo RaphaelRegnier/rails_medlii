@@ -1,9 +1,13 @@
 
-<%  My Appointments %>
- <div>
-   <% conversation.appointments.each do |appointment| %>
-   <%= appointment.address %>
-    <%= appointment.date %>
-    <%= appointment.other_user %>
-    <% end %>
-      </div>
+<h3>My appointments <h3>
+
+
+<div class = "text-center">
+<% current_user.appointments.each do |appointment| %>
+
+  <ul>
+  <li> Where we will meet: <%= appointment.address %></li>
+  <li> When: <%= appointment.date %></li>
+  </ul>
+<% end %>
+</div>
