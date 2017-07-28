@@ -1,0 +1,37 @@
+.new_appointment{
+  color: white;
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.white-colored{
+  color: white;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  option{
+    color: black;
+    &:hover{
+      background-color: $blue;
+    }
+  }
+}
+
+.flex-datetime{
+  display: flex;
+  align-items: center;
+}
+
+.flex-label{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+   padding: auto;
+    text-align: center;
+    margin-top: 40px;
+  span{
+    margin-left: 2%;
+  }
+}

@@ -1,5 +1,7 @@
 <div class="white-background" style="background-image: url('<%= asset_path "white_background.png" %>');"></div>
 
+<%= link_to "", new_conversation_appointment_path(@conversation), class: "fa fa-calendar cross appointment-link" %>
+
 <div class="chat-wrapper">
   <div class="container container-chat" id="messages-list" >
   <% @conversation.messages.each do |message| %>
@@ -13,8 +15,6 @@
       <%= f.hidden_field :conversation_id, value: params[:conversation_id] %>
       <%= f.submit "Send", class: "btn btn-send"%>
   <% end %>
-  <div><%= link_to "Make an appointment", new_conversation_appointment_path(@conversation) %></div>
-
 </div>
 
 

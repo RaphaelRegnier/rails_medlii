@@ -1,5 +1,21 @@
+<div class="background" style="background-image: url('<%= image_path "blue_background.jpg" %>');"> </div>
 
-<h1> Set your appointment </h1>
-<%= render 'form', appointment: @appointment %>
-<%= link_to 'Back', @conversations_path %>
+<div class="container margin-top">
+  <div class="row">
+    <div class="xs-col-12">
+      <div class="new-conversation">
+        <h2>NEW</h2> <h2>APPOINTMENT</h2>
+      </div>
 
+      <%= render 'form', appointment: @appointment %>
+
+
+    </div>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+<script>
+  $('.form-inline').addClass('flex-datetime')
+</script>
+<% end %>
