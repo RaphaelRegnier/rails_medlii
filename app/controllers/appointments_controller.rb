@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
     @appointment.conversation_id = @conversation.id
 
     @appointment.save!
-    redirect_to conversation_appointments_path(@conversation, @appointment)
+    redirect_to conversation_appointments_path(@conversation)
   end
 
   def show
