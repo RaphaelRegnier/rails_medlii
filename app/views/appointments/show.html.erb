@@ -1,0 +1,16 @@
+
+
+<h3>My appointments <h3>
+
+<%= link_to "All my appointments " , conversation_appointments_path(@conversation, @appointment) %>
+<div class = "text-center">
+<% current_user.appointments.each do |appointment| %>
+
+  <ul>
+  <li> Where we will meet: <%= appointment.address %></li>
+  <li> When: <%= appointment.date %></li>
+  </ul>
+<% end %>
+</div>
+
+

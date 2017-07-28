@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
- root to: 'pages#home'
+
+  root to: 'pages#home'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -12,17 +13,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :index, :update]
 
-
-
   resources :conversations do
-     resources :messages, only: [:index, :new, :create, :destroy]
-   end
+    resources :messages, only: [:index, :new, :create, :destroy]
+    resources :appointments, only: [:index, :new, :create, :show]
+  end
 
-   get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
-   # devise_for :users
+  get '/conversations/:id/refresh_messages', to: 'conversations#refresh_messages', as: 'refresh_messages'
+  # devise_for :users
 
-mount Attachinary::Engine => "/attachinary"
-
+  mount Attachinary::Engine => "/attachinary"
 
 end
-

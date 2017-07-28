@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :played_instruments, dependent: :destroy
 
   has_many :conversations
+  has_many :appointments
   has_many :sent_messages, :class_name => "Message", :foreign_key => "user_1_id"
   has_many :received_messages, :class_name => "Message", :foreign_key => "user_2_id", through: :conversations
 

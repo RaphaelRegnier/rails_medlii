@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
 
     other_user = User.find(params[:conversation][:user2].to_i)
 
+
     first_posibility = Conversation.where(user1: current_user, user2: other_user)
     second_posibility = Conversation.where(user2: current_user, user1: other_user)
 

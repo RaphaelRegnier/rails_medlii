@@ -13,10 +13,13 @@
       <%= f.hidden_field :conversation_id, value: params[:conversation_id] %>
       <%= f.submit "Send", class: "btn btn-send"%>
   <% end %>
-  </div>
+  <div><%= link_to "Make an appointment", new_conversation_appointment_path(@conversation) %></div>
+
 </div>
 
+
 <%= content_for(:after_js) do %>
+
   <script>
     $(document).ready(function() {
       scrollToBottom();
