@@ -40,24 +40,23 @@
  -->
 
 <div class="container margin-top">
-<p id="notice"><%= notice %></p>
-  <div class="row">
-    <div class="xs-col-12">
-      <div class="new-conversation">
-        <h2>MY</h2> <h2>CONVERSATIONS</h2>
-      </div>
-      <% @conversations.each do |conversation| %>
-      <% if conversation.user1 == current_user %>
-      <% recipient = conversation.user2 %>
-      <% elsif conversation.user2 == current_user%>
-      <% recipient = conversation.user1 %>
-
-      <% end %>
-      <div class="card-conversations">
-        <div class="flexbox-title-conv">
-          <%= recipient.first_name %> <%= recipient.last_name %>
+  <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="xs-col-12">
+        <div class="new-conversation">
+          <h2>MY</h2> <h2>CONVERSATIONS</h2>
         </div>
-        <div class="picture-conv" style="background-image: url('<%= cl_image_path recipient.photo.path %>');">
+        <% @conversations.each do |conversation| %>
+        <% if conversation.user1 == current_user %>
+        <% recipient = conversation.user2 %>
+        <% elsif conversation.user2 == current_user%>
+        <% recipient = conversation.user1 %>
+        <% end %>
+        <div class="card-conversations">
+          <div class="flexbox-title-conv">
+            <%= recipient.first_name %> <%= recipient.last_name %>
+          </div>
+        <div class="picture-conv" style="background-image: url('<%= cl_image_path(recipient&.photo&.path || "http://placehold.it/30x30") %>');">
 
         </div>
         <div class="last-message">
@@ -74,8 +73,8 @@
       </div>
     <% end %>
     <div class="flex-button-container">
-  <%= link_to 'New Conversation', new_conversation_path, class: 'btn btn-primary new-link' %>
-</div>
+      <%= link_to 'New Conversation', new_conversation_path, class: 'btn btn-primary new-link' %>
+    </div>
     </div>
   </div>
 </div>
