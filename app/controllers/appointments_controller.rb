@@ -1,11 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
-    @appointments = Appointment.all
-    @hash = Gmaps4rails.build_markers(@appointments.uniq) do |appointment, marker|
-      marker.lat appointment.latitude
-      marker.lng appointment.longitude
-    end
+    @appointments = current_user.appointments
   end
 
   def new
@@ -22,7 +18,7 @@ class AppointmentsController < ApplicationController
     @appointment.conversation_id = @conversation.id
 
     @appointment.save!
-    redirect_to conversation_appointments_path(@conversation)
+    redirect_to appointments_path
   end
 
   def show

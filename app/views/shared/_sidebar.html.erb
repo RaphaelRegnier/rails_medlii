@@ -6,6 +6,7 @@
     </div>
 
   <div class="links-sidebar">
+    <%= link_to 'APPOINTMENTS', appointments_path, class: 'link-sidebar', id: 'appointments' %>
     <%= link_to 'MESSAGES', conversations_path, class: 'link-sidebar', id: 'messages' %>
     <%= link_to 'SEARCH', users_path, class: 'link-sidebar', id: 'search' %>
     <%= link_to 'MY MEDLII', user_path(current_user), class: 'link-sidebar', id: 'mymedlii' %>
@@ -35,6 +36,10 @@
 
 if(current_url === "<%= conversations_path %>" || current_url === "<%= new_conversation_path %>"){
     $('#messages').addClass('active');
+  }
+
+if(current_url === "<%= appointments_path %>"){
+    $('#appointments').addClass('active');
   }
 
 </script>
