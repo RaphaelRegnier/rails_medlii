@@ -5,7 +5,7 @@
 
 
 <%= label :instrument_id, { class: 'instruments-label'}, "Instrument"  %>
-  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]), { class: 'form-control select', id: 'white-color', include_blank: true} %>
+  <%= select_tag :instrument_id, options_from_collection_for_select(@instruments,"id", "name", :selected => params[:instrument_id]), { class: 'form-control select', id: 'white-color', prompt: "All Instruments"} %>
 
 <%= number_field_tag('level', value = nil, options = { class: 'hidden'}) %>
 
