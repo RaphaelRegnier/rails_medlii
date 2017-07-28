@@ -46,6 +46,10 @@
   z-index: 1;
   background: black;
   opacity: 0;
+  &:hover{
+    opacity: 0.1;
+    transition: opacity ease 0.3s;
+  }
 }
 
 .conv-message {
@@ -86,6 +90,78 @@
 .new-link {
   color: white;
   width: 85%;
-  top: -20px;
 }
 
+.new-conversation{
+  margin: 30px 30px 40px 45px;
+
+  position: relative;
+  color:white;
+  font-size:32px;
+  font-weight: 400;
+  h2{
+    margin:0px;
+    font-family: 'Raleway', serif;
+  }
+}
+
+.card-conversations{
+  position: relative;
+  height: 70px;
+  width: 80%;
+  background-color: white;
+  font-family: 'Raleway', serif;
+  margin: 30px auto 0px auto;
+  border: solid white 1px;
+}
+
+.flexbox-title-conv{
+  display:flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  padding:0px 0px 0px 80px;
+  height: 40%;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  color: $blue;
+}
+
+.picture-conv{
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+position: absolute;
+height: 100%;
+width: 80px;
+}
+
+.last-message{
+  display: flex;
+   position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 38%;
+  height: 60%;
+  width: 100%;
+  margin-top: 3px;
+  padding: 0px 12px 5px 90px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Raleway', serif;
+  overflow: hidden;
+  text-align: justify;
+  p{
+    margin: 0px;
+    height:100%
+  }
+}
+
+.flex-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+ padding: 30px 10px;
+}
