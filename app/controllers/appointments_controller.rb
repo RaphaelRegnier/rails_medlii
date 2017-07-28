@@ -2,6 +2,10 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    @hash = Gmaps4rails.build_markers(@appointments.uniq) do |appointment, marker|
+      marker.lat appointment.latitude
+      marker.lng appointment.longitude
+    end
   end
 
   def new

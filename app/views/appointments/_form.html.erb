@@ -1,9 +1,11 @@
 
 
 <%= simple_form_for([@conversation, @appointment], html: { method: :post }) do |f| %>
+
 <div class="form_for_appointment">
-  <%= f.input :address, as: :string, label: "Where do you want to meet?", placeholder: "5333 Casgrain Ave", input_html: { class: "white-colored" } %>
+  <%= f.input :address, as: :string, label: "Where do you want to meet?", placeholder: "5333 Casgrain Ave",id: 'appointment_address', input_html: { class: "white-colored" } %>
   <%= f.input :date, as: :datetime, start_year: Date.today.year, end_year: Date.today.year + 110, order: [:day, :month, :year], input_html: { class: "white-colored" }, html_classes: { class: "flex-datetime"}, label_html: { class: "flex-label" }, label: "<span>Date</span> <span>Time</span>".html_safe %>
+
   <%= f.hidden_field :user_id, value: "current_user.id" %>
   <%= f.hidden_field :conversation_id, value: params[:conversation_id] %>
 <div class="flex-button-container">
