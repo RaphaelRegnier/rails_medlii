@@ -38,6 +38,12 @@ if(current_url === "<%= conversations_path %>" || current_url === "<%= new_conve
     $('#messages').addClass('active');
   }
 
+  <% if @conversation %>
+  if(current_url === "<%= conversation_path %>"){
+    $('#messages').addClass('active');
+  }
+  <% end %>
+
 if(current_url === "<%= appointments_path %>"){
     $('#appointments').addClass('active');
   }

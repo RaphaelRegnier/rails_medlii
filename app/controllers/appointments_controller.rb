@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:show, :destroy]
 
   def index
     @appointments = Appointment.where("user_1_id = ? or user_2_id = ?", current_user.id, current_user.id)
@@ -24,6 +25,11 @@ class AppointmentsController < ApplicationController
   def show
     # set_appointment
     # @appointment = Appointment.new
+  end
+
+  def destroy
+    @appointment.destroy
+    redirect_to :back
   end
 
 
