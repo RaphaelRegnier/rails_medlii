@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
-    @appointments = current_user.appointments
+    @appointments = Appointment.where("user_1_id = ? or user_2_id = ?", current_user.id, current_user.id)
   end
 
   def new
