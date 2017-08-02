@@ -23,6 +23,9 @@
           <div class="datetime-card">
            <p> <%= appointment.date.to_time.strftime('%B %e at %l:%M %p') %></p>
           </div>
+      <%= link_to appointment, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-times cross" aria-hidden="true"></i>
+          <% end %>
       </div>
 
 <% end %>

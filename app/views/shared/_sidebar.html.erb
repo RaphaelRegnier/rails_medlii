@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-  <div class="sidebar">
-    <div class="sidebar-decoration" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
-      <div class="sidebar-people" style=" background-image: url('<%= asset_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
-      <div id="cross-sidebar"> <i class="material-icons">clear</i></div>
-    </div>
+<div class="sidebar">
+  <div class="sidebar-decoration" style=" background-image: url('<%= asset_path "blue_background.jpg" %>');">
+    <div class="sidebar-people" style=" background-image: url('<%= asset_path "sidebar_people.png" %>');"> <span id="medlii-sidebar">medlii.</span> </div>
+    <div id="cross-sidebar"> <i class="material-icons">clear</i></div>
+  </div>
 
   <div class="links-sidebar">
     <%= link_to 'APPOINTMENTS', appointments_path, class: 'link-sidebar', id: 'appointments' %>
@@ -24,9 +24,9 @@
     $('#search').addClass('active');
   }
 
-<% if @user %>
+  <% if @user %>
   if(current_url === "<%= user_path(@user) %>" && <%= @user.id != current_user.id %>){
-  $('#search').addClass('active');
+    $('#search').addClass('active');
   }
 
   if(current_url === "<%= user_path(current_user) %>" && <%= @user.id == current_user.id %>){
@@ -34,11 +34,12 @@
   }
   <% end %>
 
-if(current_url === "<%= conversations_path %>" || current_url === "<%= new_conversation_path %>"){
+  if(current_url === "<%= conversations_path %>" || current_url === "<%= new_conversation_path %>"){
     $('#messages').addClass('active');
-  }
+  };
 
-if(current_url === "<%= appointments_path %>"){
+
+  if(current_url === "<%= appointments_path %>"){
     $('#appointments').addClass('active');
   }
 
