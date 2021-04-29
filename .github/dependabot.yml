@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: jquery-rails
+    versions:
+    - 4.3.4
+  - dependency-name: geocoder
+    versions:
+    - 1.6.1
+  - dependency-name: puma
+    versions:
+    - 3.12.6
