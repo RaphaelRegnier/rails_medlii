@@ -6,7 +6,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
-gem 'rails', '5.0.4'
+gem 'rails', '5.1.7'
 gem 'redis'
 gem 'faker'
 
